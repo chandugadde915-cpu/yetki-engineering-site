@@ -1,25 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
 import hero from "@/assets/cad-wireframe.jpg";
+import { canonicalUrl, seoMeta } from "@/lib/seo";
 
-const TITLE = "Reverse Engineering Services in Hyderabad | CAD Reconstruction | Yetki Engineering";
-const DESC = "Professional reverse engineering services in India. CAD reconstruction, legacy part replication, redesign and manufacturing optimization. Hyderabad-based engineering team.";
+const TITLE = "Reverse Engineering Services in Hyderabad | CAD Reconstruction India";
+const DESC =
+  "Professional reverse engineering services in India. CAD reconstruction, legacy part replication, redesign and manufacturing optimization. Hyderabad-based engineering team.";
 
 export const Route = createFileRoute("/reverse-engineering-services")({
   head: () => ({
     meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "reverse engineering services India, reverse engineering Hyderabad, CAD reconstruction, legacy part replication, product redesign, scan to CAD" },
+      ...seoMeta({
+        title: TITLE,
+        description: DESC,
+        path: "/reverse-engineering-services",
+        image: hero,
+      }),
+      {
+        name: "keywords",
+        content:
+          "reverse engineering services India, reverse engineering Hyderabad, CAD reconstruction, legacy part replication, product redesign, scan to CAD",
+      },
     ],
-    links: [{ rel: "canonical", href: "/reverse-engineering-services" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/reverse-engineering-services") }],
   }),
   component: () => (
     <ServicePage
       eyebrow="Reverse Engineering"
-      title={<>Reverse Engineering &amp; <span className="text-gradient-blue">CAD Reconstruction</span> Services.</>}
+      title={
+        <>
+          Reverse Engineering &amp; <span className="text-gradient-blue">CAD Reconstruction</span>{" "}
+          Services.
+        </>
+      }
       intro="Yetki Engineering delivers professional reverse engineering services for CAD reconstruction, legacy component replication, product redesign and manufacturing optimization — built on metrology-grade 3D scanning and senior CAD engineering."
       heroImage={hero}
+      heroImageAlt="Reverse engineered CAD model for manufacturing"
       sections={[
         {
           heading: "From Physical Part to Production-Ready CAD",
@@ -69,10 +85,22 @@ export const Route = createFileRoute("/reverse-engineering-services")({
         "Heritage restoration",
       ]}
       faqs={[
-        { q: "What software do you use for reverse engineering?", a: "We use SolidWorks, Creo, NX, Fusion 360 along with Geomagic Design X and Polyworks for scan-to-CAD reconstruction." },
-        { q: "Can you reverse engineer parts without any drawings?", a: "Yes. We routinely reverse engineer parts using only the physical sample, producing fully parametric CAD models and manufacturing drawings." },
-        { q: "Do you provide manufacturing after reverse engineering?", a: "Yes. We offer end-to-end engineering — from scan and CAD reconstruction through mould making and mass production." },
-        { q: "How accurate is the reconstructed CAD?", a: "Reconstructed geometry typically matches the scanned part within ±0.05 mm or tighter, depending on requirements and material." },
+        {
+          q: "What software do you use for reverse engineering?",
+          a: "We use SolidWorks, Creo, NX, Fusion 360 along with Geomagic Design X and Polyworks for scan-to-CAD reconstruction.",
+        },
+        {
+          q: "Can you reverse engineer parts without any drawings?",
+          a: "Yes. We routinely reverse engineer parts using only the physical sample, producing fully parametric CAD models and manufacturing drawings.",
+        },
+        {
+          q: "Do you provide manufacturing after reverse engineering?",
+          a: "Yes. We offer end-to-end engineering — from scan and CAD reconstruction through mould making and mass production.",
+        },
+        {
+          q: "How accurate is the reconstructed CAD?",
+          a: "Reconstructed geometry typically matches the scanned part within ±0.05 mm or tighter, depending on requirements and material.",
+        },
       ]}
       related={[
         { to: "/3d-scanning-services", label: "3D Scanning" },

@@ -10,6 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { BackgroundDecor } from "@/components/site/BackgroundDecor";
+import { COMPANY_NAME, robotsContentFromEnv } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -73,24 +74,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Lovable App" },
-      { name: "description", content: "Yetki Precision Forge offers advanced 3D scanning, reverse engineering, and precision manufacturing solutions." },
-      { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Lovable App" },
-      { property: "og:description", content: "Yetki Precision Forge offers advanced 3D scanning, reverse engineering, and precision manufacturing solutions." },
-      { property: "og:type", content: "website" },
-      { name: "twitter:card", content: "summary" },
-      { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Lovable App" },
-      { name: "twitter:description", content: "Yetki Precision Forge offers advanced 3D scanning, reverse engineering, and precision manufacturing solutions." },
-      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6acef2c8-880b-449d-8e19-489ae441c16d/id-preview-2759bac6--cad6013c-0a24-4ecb-8ddf-4134d271e741.lovable.app-1779432684011.png" },
-      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6acef2c8-880b-449d-8e19-489ae441c16d/id-preview-2759bac6--cad6013c-0a24-4ecb-8ddf-4134d271e741.lovable.app-1779432684011.png" },
+      { name: "author", content: COMPANY_NAME },
+      { name: "robots", content: robotsContentFromEnv() },
+      { name: "theme-color", content: "#0b1220" },
     ],
     links: [
       {
         rel: "stylesheet",
         href: appCss,
       },
+      { rel: "icon", type: "image/png", href: "/yetki-mark.png" },
+      { rel: "apple-touch-icon", href: "/yetki-mark.png" },
     ],
   }),
   shellComponent: RootShell,

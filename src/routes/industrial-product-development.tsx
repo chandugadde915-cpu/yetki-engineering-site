@@ -1,25 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
 import hero from "@/assets/components.jpg";
+import { canonicalUrl, seoMeta } from "@/lib/seo";
 
 const TITLE = "Industrial Product Development Services in India | Yetki Engineering";
-const DESC = "Industrial product development services — concept to production. CAD, prototyping, tooling and mass manufacturing for industrial, automotive, consumer and medical products.";
+const DESC =
+  "Industrial product development services — concept to production. CAD, prototyping, tooling and mass manufacturing for industrial, automotive, consumer and medical products.";
 
 export const Route = createFileRoute("/industrial-product-development")({
   head: () => ({
     meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "industrial product development India, product design and manufacturing, prototype to production India, end-to-end product engineering Hyderabad" },
+      ...seoMeta({
+        title: TITLE,
+        description: DESC,
+        path: "/industrial-product-development",
+        image: hero,
+      }),
+      {
+        name: "keywords",
+        content:
+          "industrial product development India, product design and manufacturing, prototype to production India, end-to-end product engineering Hyderabad",
+      },
     ],
-    links: [{ rel: "canonical", href: "/industrial-product-development" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/industrial-product-development") }],
   }),
   component: () => (
     <ServicePage
       eyebrow="Industrial Product Development"
-      title={<>End-to-End <span className="text-gradient-blue">Product Development</span> for Industry.</>}
+      title={
+        <>
+          End-to-End <span className="text-gradient-blue">Product Development</span> for Industry.
+        </>
+      }
       intro="Yetki Engineering takes industrial products from concept to mass production — combining CAD engineering, rapid prototyping, tooling and scalable manufacturing inside a single engineering team."
       heroImage={hero}
+      heroImageAlt="Industrial product development and component manufacturing"
       sections={[
         {
           heading: "Concept to Production Pipeline",
@@ -59,9 +74,18 @@ export const Route = createFileRoute("/industrial-product-development")({
         "Tooling and fixtures",
       ]}
       faqs={[
-        { q: "Do you take products from idea to mass production?", a: "Yes — our team covers the full pipeline: concept, CAD, prototype, tooling and production." },
-        { q: "Can you work under NDA on confidential products?", a: "Yes. All product development engagements are NDA-protected with strict IP controls." },
-        { q: "What industries do you serve?", a: "Automotive, industrial machinery, consumer products, medical equipment, tooling, plastics and aerospace." },
+        {
+          q: "Do you take products from idea to mass production?",
+          a: "Yes — our team covers the full pipeline: concept, CAD, prototype, tooling and production.",
+        },
+        {
+          q: "Can you work under NDA on confidential products?",
+          a: "Yes. All product development engagements are NDA-protected with strict IP controls.",
+        },
+        {
+          q: "What industries do you serve?",
+          a: "Automotive, industrial machinery, consumer products, medical equipment, tooling, plastics and aerospace.",
+        },
       ]}
       related={[
         { to: "/cad-modelling-services", label: "CAD Modelling" },

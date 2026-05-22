@@ -1,25 +1,36 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
 import hero from "@/assets/scanner.jpg";
+import { canonicalUrl, seoMeta } from "@/lib/seo";
 
-const TITLE = "Industrial 3D Scanner Supplier in India | Blue Light & Laser Scanners | Yetki Engineering";
-const DESC = "Authorized supplier and service partner for professional industrial 3D scanners in India — blue light scanners, laser scanners, and metrology systems.";
+const TITLE = "Industrial 3D Scanner Supplier in India | Blue Light & Laser Scanners";
+const DESC =
+  "Authorized supplier and service partner for professional industrial 3D scanners in India — blue light scanners, laser scanners, and metrology systems.";
 
 export const Route = createFileRoute("/3d-scanner-sales")({
   head: () => ({
     meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "industrial 3D scanner supplier India, blue light scanner India, laser scanner sales, jewellery 3D scanner, metrology scanner Hyderabad" },
+      ...seoMeta({ title: TITLE, description: DESC, path: "/3d-scanner-sales", image: hero }),
+      {
+        name: "keywords",
+        content:
+          "industrial 3D scanner supplier India, blue light scanner India, laser scanner sales, jewellery 3D scanner, metrology scanner Hyderabad",
+      },
     ],
-    links: [{ rel: "canonical", href: "/3d-scanner-sales" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/3d-scanner-sales") }],
   }),
   component: () => (
     <ServicePage
       eyebrow="3D Scanner Sales & Support"
-      title={<>Professional <span className="text-gradient-blue">3D Scanners</span> &amp; Metrology Systems.</>}
+      title={
+        <>
+          Professional <span className="text-gradient-blue">3D Scanners</span> &amp; Metrology
+          Systems.
+        </>
+      }
       intro="Yetki Engineering is a trusted supplier and support partner for professional industrial 3D scanners — including blue light scanners, laser scanners and metrology-grade systems. We deliver hardware, training, calibration and after-sales service across India."
       heroImage={hero}
+      heroImageAlt="Industrial blue light and laser 3D scanner for metrology inspection"
       sections={[
         {
           heading: "Scanner Portfolio",
@@ -65,9 +76,18 @@ export const Route = createFileRoute("/3d-scanner-sales")({
         "Medical device R&D",
       ]}
       faqs={[
-        { q: "Are you an authorized 3D scanner supplier?", a: "Yes. We supply professional industrial 3D scanners with full warranty, calibration and authorized service." },
-        { q: "Do you provide training with the scanner?", a: "Yes. Every scanner is delivered with operator training, software setup and calibration." },
-        { q: "Can I demo a 3D scanner before buying?", a: "Yes. We arrange product demonstrations on-site or at our facility in Hyderabad." },
+        {
+          q: "Are you an authorized 3D scanner supplier?",
+          a: "Yes. We supply professional industrial 3D scanners with full warranty, calibration and authorized service.",
+        },
+        {
+          q: "Do you provide training with the scanner?",
+          a: "Yes. Every scanner is delivered with operator training, software setup and calibration.",
+        },
+        {
+          q: "Can I demo a 3D scanner before buying?",
+          a: "Yes. We arrange product demonstrations on-site or at our facility in Hyderabad.",
+        },
       ]}
       related={[
         { to: "/3d-scanning-services", label: "3D Scanning Services" },

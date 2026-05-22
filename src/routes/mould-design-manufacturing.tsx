@@ -1,25 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
 import hero from "@/assets/mould.jpg";
+import { canonicalUrl, seoMeta } from "@/lib/seo";
 
-const TITLE = "Mould Design & Injection Mould Manufacturing | Yetki Engineering";
-const DESC = "Injection mould design and mould manufacturing services in India. Plastic and metal component moulds with industrial-grade dimensional accuracy and validated tool life.";
+const TITLE = "Injection Mould Design & Mould Manufacturing Hyderabad | Yetki Engineering";
+const DESC =
+  "Injection mould design and mould manufacturing services in India. Plastic and metal component moulds with industrial-grade dimensional accuracy and validated tool life.";
 
 export const Route = createFileRoute("/mould-design-manufacturing")({
   head: () => ({
     meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "mould design company India, injection mould manufacturing Hyderabad, plastic mould maker, mould tool design, mould flow analysis" },
+      ...seoMeta({
+        title: TITLE,
+        description: DESC,
+        path: "/mould-design-manufacturing",
+        image: hero,
+      }),
+      {
+        name: "keywords",
+        content:
+          "mould design company India, injection mould manufacturing Hyderabad, plastic mould maker, mould tool design, mould flow analysis",
+      },
     ],
-    links: [{ rel: "canonical", href: "/mould-design-manufacturing" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/mould-design-manufacturing") }],
   }),
   component: () => (
     <ServicePage
       eyebrow="Mould Design & Mould Making"
-      title={<><span className="text-gradient-blue">Injection Mould</span> Design &amp; Manufacturing.</>}
+      title={
+        <>
+          <span className="text-gradient-blue">Injection Mould</span> Design &amp; Manufacturing.
+        </>
+      }
       intro="Yetki Engineering designs and manufactures injection moulds for plastic and metal components with industrial-grade dimensional accuracy, validated tool life and DFM-driven engineering. From single-cavity prototypes to multi-cavity production tools."
       heroImage={hero}
+      heroImageAlt="Injection mould design and manufacturing process"
       sections={[
         {
           heading: "Mould Design Capability",
@@ -58,9 +73,18 @@ export const Route = createFileRoute("/mould-design-manufacturing")({
         "Closures and caps",
       ]}
       faqs={[
-        { q: "What mould steels do you work with?", a: "We work with P20, H13, S136, NAK80, 718H and other tool steels selected based on volume, material and surface finish requirements." },
-        { q: "Do you provide mould flow analysis?", a: "Yes — we perform mould flow analysis to optimize gate location, fill, cooling and warpage." },
-        { q: "Can you handle multi-cavity moulds?", a: "Yes. We design and manufacture single-cavity, multi-cavity and family moulds with hot or cold runner systems." },
+        {
+          q: "What mould steels do you work with?",
+          a: "We work with P20, H13, S136, NAK80, 718H and other tool steels selected based on volume, material and surface finish requirements.",
+        },
+        {
+          q: "Do you provide mould flow analysis?",
+          a: "Yes — we perform mould flow analysis to optimize gate location, fill, cooling and warpage.",
+        },
+        {
+          q: "Can you handle multi-cavity moulds?",
+          a: "Yes. We design and manufacture single-cavity, multi-cavity and family moulds with hot or cold runner systems.",
+        },
       ]}
       related={[
         { to: "/precision-manufacturing", label: "Precision Manufacturing" },

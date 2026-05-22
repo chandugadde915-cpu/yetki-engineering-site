@@ -1,25 +1,41 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
 import hero from "@/assets/components.jpg";
+import { canonicalUrl, seoMeta } from "@/lib/seo";
 
-const TITLE = "Precision Manufacturing & Mass Production Company India | Yetki Engineering";
-const DESC = "Scalable precision manufacturing and mass production services in India for automotive, industrial machinery, consumer products and engineering components.";
+const TITLE = "Precision Component Manufacturing & Mass Production India | Yetki Engineering";
+const DESC =
+  "Scalable precision manufacturing and mass production services in India for automotive, industrial machinery, consumer products and engineering components.";
 
 export const Route = createFileRoute("/precision-manufacturing")({
   head: () => ({
     meta: [
-      { title: TITLE },
-      { name: "description", content: DESC },
-      { name: "keywords", content: "precision manufacturing company India, mass production services, industrial component manufacturing, CNC machining Hyderabad, plastic component manufacturing" },
+      ...seoMeta({
+        title: TITLE,
+        description: DESC,
+        path: "/precision-manufacturing",
+        image: hero,
+      }),
+      {
+        name: "keywords",
+        content:
+          "precision manufacturing company India, mass production services, industrial component manufacturing, CNC machining Hyderabad, plastic component manufacturing",
+      },
     ],
-    links: [{ rel: "canonical", href: "/precision-manufacturing" }],
+    links: [{ rel: "canonical", href: canonicalUrl("/precision-manufacturing") }],
   }),
   component: () => (
     <ServicePage
       eyebrow="Precision Manufacturing"
-      title={<>Scalable <span className="text-gradient-blue">Precision Manufacturing</span> &amp; Mass Production.</>}
+      title={
+        <>
+          Scalable <span className="text-gradient-blue">Precision Manufacturing</span> &amp; Mass
+          Production.
+        </>
+      }
       intro="Yetki Engineering offers scalable manufacturing solutions for automotive, industrial machinery, consumer products and precision engineering components — backed by validated tooling, in-process inspection and metrology-grade quality control."
       heroImage={hero}
+      heroImageAlt="Precision machined component manufacturing"
       sections={[
         {
           heading: "Manufacturing Capabilities",
@@ -65,9 +81,18 @@ export const Route = createFileRoute("/precision-manufacturing")({
         "Heavy engineering",
       ]}
       faqs={[
-        { q: "What production volumes do you support?", a: "We support volumes ranging from prototype runs to several hundred thousand parts per year, depending on process and tooling." },
-        { q: "Do you handle export orders?", a: "Yes — we manufacture and ship for clients across India and internationally." },
-        { q: "Can you handle full make-to-print or design-to-deliver?", a: "Both. We manufacture to client drawings, or design and engineer the part end-to-end and deliver finished components." },
+        {
+          q: "What production volumes do you support?",
+          a: "We support volumes ranging from prototype runs to several hundred thousand parts per year, depending on process and tooling.",
+        },
+        {
+          q: "Do you handle export orders?",
+          a: "Yes — we manufacture and ship for clients across India and internationally.",
+        },
+        {
+          q: "Can you handle full make-to-print or design-to-deliver?",
+          a: "Both. We manufacture to client drawings, or design and engineer the part end-to-end and deliver finished components.",
+        },
       ]}
       related={[
         { to: "/mould-design-manufacturing", label: "Mould Design" },

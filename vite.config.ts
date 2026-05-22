@@ -15,7 +15,15 @@ export default defineConfig({
   ...(isVercelBuild
     ? {
         cloudflare: false as const,
-        plugins: [nitro()],
+        plugins: [
+          nitro({
+            vercel: {
+              config: {
+                routes: [{ src: "/robots\\.txt", dest: "/__server" }],
+              },
+            },
+          }),
+        ],
       }
     : {}),
   tanstackStart: {

@@ -2,6 +2,7 @@ import "./lib/error-capture";
 
 import { consumeLastCapturedError } from "./lib/error-capture";
 import { renderErrorPage } from "./lib/error-page";
+import { robotsContentForHost, robotsTxtForHost } from "./lib/seo";
 
 type ServerEntry = {
   fetch: (request: Request, env: unknown, ctx: unknown) => Promise<Response> | Response;
@@ -12,7 +13,7 @@ let serverEntryPromise: Promise<ServerEntry> | undefined;
 async function getServerEntry(): Promise<ServerEntry> {
   if (!serverEntryPromise) {
     serverEntryPromise = import("@tanstack/react-start/server-entry").then(
-      (m) => ((m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry)),
+      (m) => (m as { default?: ServerEntry }).default ?? (m as unknown as ServerEntry),
     );
   }
   return serverEntryPromise;
@@ -66,12 +67,65 @@ async function normalizeCatastrophicSsrResponse(response: Response): Promise<Res
   return brandedErrorResponse();
 }
 
+function hostFromRequest(request: Request): string {
+  return new URL(request.url).hostname;
+}
+
+function isHtmlResponse(response: Response): boolean {
+  return (response.headers.get("content-type") ?? "").includes("text/html");
+}
+
+function dynamicRobotsResponse(request: Request): Response {
+  const hostname = hostFromRequest(request);
+
+  return new Response(robotsTxtForHost(hostname), {
+    headers: {
+      "content-type": "text/plain; charset=utf-8",
+      "cache-control": "public, max-age=0, s-maxage=3600",
+      "x-robots-tag": robotsContentForHost(hostname),
+    },
+  });
+}
+
+async function applyRobotsPolicy(request: Request, response: Response): Promise<Response> {
+  const robots = robotsContentForHost(hostFromRequest(request));
+  const headers = new Headers(response.headers);
+  headers.set("x-robots-tag", robots);
+
+  if (!isHtmlResponse(response)) {
+    return new Response(response.body, {
+      status: response.status,
+      statusText: response.statusText,
+      headers,
+    });
+  }
+
+  const body = await response.text();
+  const meta = `<meta name="robots" content="${robots}">`;
+  const nextBody = /<meta\s+name=["']robots["'][^>]*>/i.test(body)
+    ? body.replace(/<meta\s+name=["']robots["'][^>]*>/i, meta)
+    : body.replace("</head>", `${meta}</head>`);
+
+  headers.delete("content-length");
+
+  return new Response(nextBody, {
+    status: response.status,
+    statusText: response.statusText,
+    headers,
+  });
+}
+
 export default {
   async fetch(request: Request, env: unknown, ctx: unknown) {
     try {
+      if (new URL(request.url).pathname === "/robots.txt") {
+        return dynamicRobotsResponse(request);
+      }
+
       const handler = await getServerEntry();
       const response = await handler.fetch(request, env, ctx);
-      return await normalizeCatastrophicSsrResponse(response);
+      const normalizedResponse = await normalizeCatastrophicSsrResponse(response);
+      return await applyRobotsPolicy(request, normalizedResponse);
     } catch (error) {
       console.error(error);
       return brandedErrorResponse();
