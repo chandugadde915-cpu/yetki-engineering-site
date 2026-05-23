@@ -33,7 +33,8 @@ import cad from "@/assets/cad-wireframe.jpg";
 import { faqJsonLd } from "@/lib/seo";
 
 const OFFICE_ADDRESS = "#36, Phase 1 Road, TIE, Balanagar, Hyderabad 500037";
-const MAP_QUERY = encodeURIComponent(`YETKI ENGINEERING PVT LTD, ${OFFICE_ADDRESS}`);
+const MAP_COORDINATES = "17.4703437,78.4429305";
+const MAP_QUERY = encodeURIComponent(MAP_COORDINATES);
 
 // ---------------- Section heading ----------------
 function Eyebrow({ children }: { children: React.ReactNode }) {
@@ -807,7 +808,7 @@ export function Contact() {
             <div className="rounded-2xl overflow-hidden glass aspect-[16/9] mt-4">
               <iframe
                 title="YETKI ENGINEERING PVT LTD — Balanagar, Hyderabad"
-                src={`https://www.google.com/maps?q=${MAP_QUERY}&output=embed`}
+                src={`https://www.google.com/maps?q=${MAP_QUERY}&z=17&output=embed`}
                 className="h-full w-full grayscale-[40%] opacity-90"
                 loading="lazy"
               />
