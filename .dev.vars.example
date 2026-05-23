@@ -1,3 +1,10 @@
+<<<<<<< HEAD
 RESEND_API_KEY=re_Zmpr6vLR_ByNTpDJzpvB4e9h6W44HyfYs
 CONTACT_FROM_EMAIL=Yetki Engineering <noreply@yetkiengineering.com>
 CONTACT_TO_EMAIL=aarifmohammadsyed@gmail.com
+=======
+RESEND_API_KEY=re_your_api_key_here
+CONTACT_FROM_EMAIL=Yetki Engineering <noreply@yetkiengineering.com>
+CONTACT_TO_EMAIL=chanduprudhvi1234@gmail.com
+>>>>>>> f4d39221b3375348edffaf1357955380b96d830d
+

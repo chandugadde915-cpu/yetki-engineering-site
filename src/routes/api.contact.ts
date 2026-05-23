@@ -10,7 +10,11 @@ type ContactLead = {
   page: string;
 };
 
+<<<<<<< HEAD
 const DEFAULT_TO_EMAIL = "aarifmohammadsyed@gmail.com";
+=======
+const DEFAULT_TO_EMAIL = "chanduprudhvi1234@gmail.com";
+>>>>>>> f4d39221b3375348edffaf1357955380b96d830d
 const DEFAULT_FROM_EMAIL = "Yetki Engineering <onboarding@resend.dev>";
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const MAX_FIELD_LENGTH = 2000;
