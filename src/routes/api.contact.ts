@@ -11,7 +11,7 @@ type ContactLead = {
 };
 
 const DEFAULT_TO_EMAIL = "aarifmohammadsyed@gmail.com";
-const DEFAULT_FROM_EMAIL = "Yetki Engineering <onboarding@resend.dev>";
+const DEFAULT_FROM_EMAIL = "Yetki Engineering <info@yetkiengineering.com>";
 const RESEND_ENDPOINT = "https://api.resend.com/emails";
 const MAX_FIELD_LENGTH = 2000;
 
@@ -116,7 +116,7 @@ async function sendLeadEmail(lead: ContactLead) {
     return {
       ok: false,
       status: 503,
-      message: "Email delivery is not configured yet. Please call or email us directly.",
+      message: "Email service is not configured in Vercel. Please add RESEND_API_KEY.",
     };
   }
 
@@ -142,7 +142,7 @@ async function sendLeadEmail(lead: ContactLead) {
     return {
       ok: false,
       status: 502,
-      message: "We could not send your request right now. Please call or email us directly.",
+      message: "Email could not be sent. Check RESEND_API_KEY and CONTACT_FROM_EMAIL in Vercel.",
     };
   }
 
