@@ -1,6 +1,7 @@
 import { Resend } from "resend";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
+const DEFAULT_TO_EMAIL = "aarifmohammadsyed@gmail.com";
 
 export default async function handler(req, res) {
   try {
@@ -12,7 +13,7 @@ export default async function handler(req, res) {
 
     const result = await resend.emails.send({
       from: process.env.CONTACT_FROM_EMAIL || "Yetki Engineering <onboarding@resend.dev>",
-      to: process.env.CONTACT_TO_EMAIL,
+      to: process.env.CONTACT_TO_EMAIL || DEFAULT_TO_EMAIL,
       subject: `New Quote Request - ${service || "Website"}`,
       reply_to: email,
       html: `
