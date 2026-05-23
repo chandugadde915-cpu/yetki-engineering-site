@@ -29,6 +29,8 @@ export function ServicePage(p: ServicePageProps) {
             alt={p.heroImageAlt}
             width={1920}
             height={1080}
+            loading="eager"
+            fetchPriority="high"
             className="h-full w-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.14_0.04_260)]/70 via-[oklch(0.14_0.04_260)]/70 to-[oklch(0.14_0.04_260)]" />

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
-import hero from "@/assets/scanner.jpg";
+import hero from "@/assets/scanner.webp";
 import { canonicalUrl, seoMeta } from "@/lib/seo";
 
 const TITLE = "Industrial 3D Scanner Supplier in India | Blue Light & Laser Scanners";

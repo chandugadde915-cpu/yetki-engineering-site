@@ -1,9 +1,10 @@
-export const SITE_URL = "https://yetkiengineering.com";
+export const SITE_URL = "https://www.yetkiengineering.com";
 export const SITE_HOST = "yetkiengineering.com";
 export const SITE_NAME = "Yetki Engineering";
 export const COMPANY_NAME = "Yetki Engineering Pvt Ltd";
 export const DEFAULT_OG_IMAGE = `${SITE_URL}/yetki-mark.png`;
 const INDEXABLE_HOSTS = new Set([SITE_HOST, `www.${SITE_HOST}`]);
+const LINKEDIN_URL = "https://in.linkedin.com/company/3d-levin-engineering-pvt-ltd";
 
 type SeoMetaInput = {
   title: string;
@@ -24,6 +25,10 @@ function readEnv(name: string): string | undefined {
   };
 
   return globalWithProcess.process?.env?.[name];
+}
+
+export function analyticsMeasurementId(): string | undefined {
+  return readEnv("VITE_GA_MEASUREMENT_ID") ?? readEnv("GA_MEASUREMENT_ID");
 }
 
 function stripProtocol(value: string): string {
@@ -112,6 +117,8 @@ export function organizationJsonLd() {
         url: SITE_URL,
         telephone: "+91-9505923789",
         email: "info@yetkiengineering.com",
+        image: DEFAULT_OG_IMAGE,
+        sameAs: [LINKEDIN_URL],
         address: {
           "@type": "PostalAddress",
           streetAddress: "#36, Phase 1 Road, TIE, Balanagar",

@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
-import { Mail, Phone, MapPin } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin } from "lucide-react";
 
 const OFFICE_ADDRESS = "#36, Phase 1 Road, TIE, Balanagar, Hyderabad 500037";
+const LINKEDIN_URL = "https://in.linkedin.com/company/3d-levin-engineering-pvt-ltd";
 
 export function Footer() {
   return (
@@ -38,7 +39,7 @@ export function Footer() {
           </div>
         </div>
         <div>
-          <h4 className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">Services</h4>
+          <h2 className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">Services</h2>
           <ul className="space-y-2 text-sm">
             <li><Link to="/3d-scanning-services" className="hover:text-blue-300">3D Scanning Services</Link></li>
             <li><Link to="/reverse-engineering-services" className="hover:text-blue-300">Reverse Engineering</Link></li>
@@ -50,13 +51,23 @@ export function Footer() {
           </ul>
         </div>
         <div>
-          <h4 className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">Company</h4>
+          <h2 className="text-xs uppercase tracking-[0.18em] text-muted-foreground mb-4">Company</h2>
           <ul className="space-y-2 text-sm">
-            <li><a href="/#about" className="hover:text-blue-300">About</a></li>
+            <li><Link to="/about" className="hover:text-blue-300">About</Link></li>
             <li><a href="/#industries" className="hover:text-blue-300">Industries</a></li>
-            <li><a href="/#case-studies" className="hover:text-blue-300">Case Studies</a></li>
-            <li><a href="/#contact" className="hover:text-blue-300">Contact</a></li>
+            <li><Link to="/case-studies" className="hover:text-blue-300">Case Studies</Link></li>
+            <li><Link to="/contact" className="hover:text-blue-300">Contact</Link></li>
+            <li><Link to="/privacy-policy" className="hover:text-blue-300">Privacy Policy</Link></li>
+            <li><Link to="/terms" className="hover:text-blue-300">Terms</Link></li>
           </ul>
+          <a
+            href={LINKEDIN_URL}
+            target="_blank"
+            rel="noreferrer"
+            className="mt-5 inline-flex items-center gap-2 text-sm text-foreground/80 hover:text-blue-300"
+          >
+            <Linkedin size={16} /> LinkedIn
+          </a>
         </div>
       </div>
       <div className="border-t border-white/5">

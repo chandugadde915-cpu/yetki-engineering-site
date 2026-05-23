@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { ArrowRight, Activity, Cpu, Layers, Boxes } from "lucide-react";
-import heroBg from "@/assets/hero-factory.jpg";
-import cad from "@/assets/cad-wireframe.jpg";
+import heroBg from "@/assets/hero-factory.webp";
+import cad from "@/assets/cad-wireframe.webp";
 
 export function Hero() {
   return (
@@ -13,6 +13,8 @@ export function Hero() {
           alt="Industrial precision engineering manufacturing facility"
           width={1920}
           height={1080}
+          loading="eager"
+          fetchPriority="high"
           className="h-full w-full object-cover opacity-60"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-[oklch(0.14_0.04_260)]/70 via-[oklch(0.14_0.04_260)]/50 to-[oklch(0.14_0.04_260)]" />
@@ -124,6 +126,7 @@ export function Hero() {
                 alt="CAD wireframe model of an automotive engine"
                 width={1280}
                 height={1280}
+                loading="lazy"
                 className="h-full w-full object-cover floaty"
               />
               <div className="absolute inset-0 pointer-events-none">

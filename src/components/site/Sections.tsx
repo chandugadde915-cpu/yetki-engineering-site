@@ -26,10 +26,10 @@ import {
   MapPin,
 } from "lucide-react";
 import { Link } from "@tanstack/react-router";
-import components from "@/assets/components.jpg";
-import mould from "@/assets/mould.jpg";
-import scanner from "@/assets/scanner.jpg";
-import cad from "@/assets/cad-wireframe.jpg";
+import components from "@/assets/components.webp";
+import mould from "@/assets/mould.webp";
+import scanner from "@/assets/scanner.webp";
+import cad from "@/assets/cad-wireframe.webp";
 import { faqJsonLd } from "@/lib/seo";
 
 const OFFICE_ADDRESS = "#36, Phase 1 Road, TIE, Balanagar, Hyderabad 500037";

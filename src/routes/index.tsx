@@ -14,12 +14,12 @@ import {
   Contact,
   LogoStrip,
 } from "@/components/site/Sections";
-import heroImage from "@/assets/hero-factory.jpg";
+import heroImage from "@/assets/hero-factory.webp";
 import { canonicalUrl, organizationJsonLd, seoMeta } from "@/lib/seo";
 
-const TITLE = "Yetki Engineering | 3D Scanning, Reverse Engineering & Manufacturing Hyderabad";
+const TITLE = "Yetki Engineering | 3D Scanning, Reverse Engineering & CAD Services Hyderabad";
 const DESC =
-  "Yetki Engineering Pvt Ltd — industrial 3D scanning, reverse engineering, CAD modelling, mould design, precision manufacturing and 3D scanner sales in Hyderabad, India.";
+  "Yetki Engineering provides 3D scanning, reverse engineering, CAD modelling, mould design and precision manufacturing services in Hyderabad for automotive, aerospace and industrial sectors.";
 
 export const Route = createFileRoute("/")({
   head: () => ({

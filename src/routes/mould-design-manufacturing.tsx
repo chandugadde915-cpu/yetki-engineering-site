@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
-import hero from "@/assets/mould.jpg";
+import hero from "@/assets/mould.webp";
 import { canonicalUrl, seoMeta } from "@/lib/seo";
 
 const TITLE = "Injection Mould Design & Mould Manufacturing Hyderabad | Yetki Engineering";

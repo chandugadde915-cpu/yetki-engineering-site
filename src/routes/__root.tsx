@@ -10,7 +10,7 @@ import {
 
 import appCss from "../styles.css?url";
 import { BackgroundDecor } from "@/components/site/BackgroundDecor";
-import { COMPANY_NAME, robotsContentFromEnv } from "@/lib/seo";
+import { analyticsMeasurementId, COMPANY_NAME, robotsContentFromEnv } from "@/lib/seo";
 
 function NotFoundComponent() {
   return (
@@ -70,23 +70,36 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
 }
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
-  head: () => ({
-    meta: [
-      { charSet: "utf-8" },
-      { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { name: "author", content: COMPANY_NAME },
-      { name: "robots", content: robotsContentFromEnv() },
-      { name: "theme-color", content: "#0b1220" },
-    ],
-    links: [
-      {
-        rel: "stylesheet",
-        href: appCss,
-      },
-      { rel: "icon", type: "image/png", href: "/yetki-mark.png" },
-      { rel: "apple-touch-icon", href: "/yetki-mark.png" },
-    ],
-  }),
+  head: () => {
+    const gaId = analyticsMeasurementId();
+
+    return {
+      meta: [
+        { charSet: "utf-8" },
+        { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "author", content: COMPANY_NAME },
+        { name: "robots", content: robotsContentFromEnv() },
+        { name: "theme-color", content: "#0b1220" },
+      ],
+      links: [
+        {
+          rel: "stylesheet",
+          href: appCss,
+        },
+        { rel: "icon", type: "image/png", href: "/favicon.png" },
+        { rel: "icon", href: "/favicon.ico" },
+        { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+      ],
+      scripts: gaId
+        ? [
+            { src: `https://www.googletagmanager.com/gtag/js?id=${gaId}`, async: true },
+            {
+              children: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','${gaId}');`,
+            },
+          ]
+        : [],
+    };
+  },
   shellComponent: RootShell,
   component: RootComponent,
   notFoundComponent: NotFoundComponent,

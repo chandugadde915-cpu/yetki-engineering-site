@@ -9,12 +9,18 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TermsRouteImport } from './routes/terms'
+import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReverseEngineeringServicesRouteImport } from './routes/reverse-engineering-services'
+import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
 import { Route as PrecisionManufacturingRouteImport } from './routes/precision-manufacturing'
 import { Route as MouldDesignManufacturingRouteImport } from './routes/mould-design-manufacturing'
 import { Route as IndustrialProductDevelopmentRouteImport } from './routes/industrial-product-development'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CadModellingServicesRouteImport } from './routes/cad-modelling-services'
 import { Route as BlogRouteImport } from './routes/blog'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as R3dScanningServicesRouteImport } from './routes/3d-scanning-services'
 import { Route as R3dScannerSalesRouteImport } from './routes/3d-scanner-sales'
 import { Route as IndexRouteImport } from './routes/index'
@@ -23,12 +29,27 @@ import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
 import { Route as ApiContactRouteImport } from './routes/api.contact'
 import { Route as BlogCategoryCategoryRouteImport } from './routes/blog.category.$category'
 
+const TermsRoute = TermsRouteImport.update({
+  id: '/terms',
+  path: '/terms',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ReverseEngineeringServicesRoute =
   ReverseEngineeringServicesRouteImport.update({
     id: '/reverse-engineering-services',
     path: '/reverse-engineering-services',
     getParentRoute: () => rootRouteImport,
   } as any)
+const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
+  id: '/privacy-policy',
+  path: '/privacy-policy',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const PrecisionManufacturingRoute = PrecisionManufacturingRouteImport.update({
   id: '/precision-manufacturing',
   path: '/precision-manufacturing',
@@ -46,6 +67,16 @@ const IndustrialProductDevelopmentRoute =
     path: '/industrial-product-development',
     getParentRoute: () => rootRouteImport,
   } as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CaseStudiesRoute = CaseStudiesRouteImport.update({
+  id: '/case-studies',
+  path: '/case-studies',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const CadModellingServicesRoute = CadModellingServicesRouteImport.update({
   id: '/cad-modelling-services',
   path: '/cad-modelling-services',
@@ -54,6 +85,11 @@ const CadModellingServicesRoute = CadModellingServicesRouteImport.update({
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
 const R3dScanningServicesRoute = R3dScanningServicesRouteImport.update({
@@ -96,12 +132,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/3d-scanner-sales': typeof R3dScannerSalesRoute
   '/3d-scanning-services': typeof R3dScanningServicesRoute
+  '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/cad-modelling-services': typeof CadModellingServicesRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/industrial-product-development': typeof IndustrialProductDevelopmentRoute
   '/mould-design-manufacturing': typeof MouldDesignManufacturingRoute
   '/precision-manufacturing': typeof PrecisionManufacturingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reverse-engineering-services': typeof ReverseEngineeringServicesRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -111,11 +153,17 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/3d-scanner-sales': typeof R3dScannerSalesRoute
   '/3d-scanning-services': typeof R3dScanningServicesRoute
+  '/about': typeof AboutRoute
   '/cad-modelling-services': typeof CadModellingServicesRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/industrial-product-development': typeof IndustrialProductDevelopmentRoute
   '/mould-design-manufacturing': typeof MouldDesignManufacturingRoute
   '/precision-manufacturing': typeof PrecisionManufacturingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reverse-engineering-services': typeof ReverseEngineeringServicesRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog': typeof BlogIndexRoute
@@ -126,12 +174,18 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/3d-scanner-sales': typeof R3dScannerSalesRoute
   '/3d-scanning-services': typeof R3dScanningServicesRoute
+  '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
   '/cad-modelling-services': typeof CadModellingServicesRoute
+  '/case-studies': typeof CaseStudiesRoute
+  '/contact': typeof ContactRoute
   '/industrial-product-development': typeof IndustrialProductDevelopmentRoute
   '/mould-design-manufacturing': typeof MouldDesignManufacturingRoute
   '/precision-manufacturing': typeof PrecisionManufacturingRoute
+  '/privacy-policy': typeof PrivacyPolicyRoute
   '/reverse-engineering-services': typeof ReverseEngineeringServicesRoute
+  '/services': typeof ServicesRoute
+  '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
   '/blog/$slug': typeof BlogSlugRoute
   '/blog/': typeof BlogIndexRoute
@@ -143,12 +197,18 @@ export interface FileRouteTypes {
     | '/'
     | '/3d-scanner-sales'
     | '/3d-scanning-services'
+    | '/about'
     | '/blog'
     | '/cad-modelling-services'
+    | '/case-studies'
+    | '/contact'
     | '/industrial-product-development'
     | '/mould-design-manufacturing'
     | '/precision-manufacturing'
+    | '/privacy-policy'
     | '/reverse-engineering-services'
+    | '/services'
+    | '/terms'
     | '/api/contact'
     | '/blog/$slug'
     | '/blog/'
@@ -158,11 +218,17 @@ export interface FileRouteTypes {
     | '/'
     | '/3d-scanner-sales'
     | '/3d-scanning-services'
+    | '/about'
     | '/cad-modelling-services'
+    | '/case-studies'
+    | '/contact'
     | '/industrial-product-development'
     | '/mould-design-manufacturing'
     | '/precision-manufacturing'
+    | '/privacy-policy'
     | '/reverse-engineering-services'
+    | '/services'
+    | '/terms'
     | '/api/contact'
     | '/blog/$slug'
     | '/blog'
@@ -172,12 +238,18 @@ export interface FileRouteTypes {
     | '/'
     | '/3d-scanner-sales'
     | '/3d-scanning-services'
+    | '/about'
     | '/blog'
     | '/cad-modelling-services'
+    | '/case-studies'
+    | '/contact'
     | '/industrial-product-development'
     | '/mould-design-manufacturing'
     | '/precision-manufacturing'
+    | '/privacy-policy'
     | '/reverse-engineering-services'
+    | '/services'
+    | '/terms'
     | '/api/contact'
     | '/blog/$slug'
     | '/blog/'
@@ -188,22 +260,49 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   R3dScannerSalesRoute: typeof R3dScannerSalesRoute
   R3dScanningServicesRoute: typeof R3dScanningServicesRoute
+  AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
   CadModellingServicesRoute: typeof CadModellingServicesRoute
+  CaseStudiesRoute: typeof CaseStudiesRoute
+  ContactRoute: typeof ContactRoute
   IndustrialProductDevelopmentRoute: typeof IndustrialProductDevelopmentRoute
   MouldDesignManufacturingRoute: typeof MouldDesignManufacturingRoute
   PrecisionManufacturingRoute: typeof PrecisionManufacturingRoute
+  PrivacyPolicyRoute: typeof PrivacyPolicyRoute
   ReverseEngineeringServicesRoute: typeof ReverseEngineeringServicesRoute
+  ServicesRoute: typeof ServicesRoute
+  TermsRoute: typeof TermsRoute
   ApiContactRoute: typeof ApiContactRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/terms': {
+      id: '/terms'
+      path: '/terms'
+      fullPath: '/terms'
+      preLoaderRoute: typeof TermsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reverse-engineering-services': {
       id: '/reverse-engineering-services'
       path: '/reverse-engineering-services'
       fullPath: '/reverse-engineering-services'
       preLoaderRoute: typeof ReverseEngineeringServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/privacy-policy': {
+      id: '/privacy-policy'
+      path: '/privacy-policy'
+      fullPath: '/privacy-policy'
+      preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/precision-manufacturing': {
@@ -227,6 +326,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustrialProductDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/case-studies': {
+      id: '/case-studies'
+      path: '/case-studies'
+      fullPath: '/case-studies'
+      preLoaderRoute: typeof CaseStudiesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/cad-modelling-services': {
       id: '/cad-modelling-services'
       path: '/cad-modelling-services'
@@ -239,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/blog'
       fullPath: '/blog'
       preLoaderRoute: typeof BlogRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/3d-scanning-services': {
@@ -311,12 +431,18 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   R3dScannerSalesRoute: R3dScannerSalesRoute,
   R3dScanningServicesRoute: R3dScanningServicesRoute,
+  AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
   CadModellingServicesRoute: CadModellingServicesRoute,
+  CaseStudiesRoute: CaseStudiesRoute,
+  ContactRoute: ContactRoute,
   IndustrialProductDevelopmentRoute: IndustrialProductDevelopmentRoute,
   MouldDesignManufacturingRoute: MouldDesignManufacturingRoute,
   PrecisionManufacturingRoute: PrecisionManufacturingRoute,
+  PrivacyPolicyRoute: PrivacyPolicyRoute,
   ReverseEngineeringServicesRoute: ReverseEngineeringServicesRoute,
+  ServicesRoute: ServicesRoute,
+  TermsRoute: TermsRoute,
   ApiContactRoute: ApiContactRoute,
 }
 export const routeTree = rootRouteImport

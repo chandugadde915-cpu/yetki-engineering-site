@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
-import hero from "@/assets/components.jpg";
+import hero from "@/assets/components.webp";
 import { canonicalUrl, seoMeta } from "@/lib/seo";
 
 const TITLE = "Industrial Product Development Services in India | Yetki Engineering";

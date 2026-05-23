@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ServicePage } from "@/components/site/ServicePage";
-import hero from "@/assets/cad-wireframe.jpg";
+import hero from "@/assets/cad-wireframe.webp";
 import { canonicalUrl, seoMeta } from "@/lib/seo";
 
 const TITLE = "CAD Modelling & Product Development Services | Yetki Engineering";

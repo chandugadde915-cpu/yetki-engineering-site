@@ -1,8 +1,8 @@
-import componentsImg from "@/assets/components.jpg";
-import scannerImg from "@/assets/scanner.jpg";
-import cadImg from "@/assets/cad-wireframe.jpg";
-import mouldImg from "@/assets/mould.jpg";
-import heroImg from "@/assets/hero-factory.jpg";
+import componentsImg from "@/assets/components.webp";
+import scannerImg from "@/assets/scanner.webp";
+import cadImg from "@/assets/cad-wireframe.webp";
+import mouldImg from "@/assets/mould.webp";
+import heroImg from "@/assets/hero-factory.webp";
 
 export type Category = "scanning" | "manufacturing" | "reverse-engineering" | "product-development";
 

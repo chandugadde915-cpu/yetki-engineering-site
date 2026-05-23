@@ -4,12 +4,12 @@ import { Menu, X } from "lucide-react";
 
 const links = [
   { to: "/", label: "Home" },
+  { to: "/about", label: "About" },
+  { to: "/services", label: "Services" },
   { to: "/3d-scanning-services", label: "3D Scanning" },
   { to: "/reverse-engineering-services", label: "Reverse Engineering" },
   { to: "/cad-modelling-services", label: "CAD Modelling" },
-  { to: "/mould-design-manufacturing", label: "Mould Design" },
-  { to: "/precision-manufacturing", label: "Manufacturing" },
-  { to: "/3d-scanner-sales", label: "Scanners" },
+  { to: "/contact", label: "Contact" },
   { to: "/blog", label: "Insights" },
 ];
 

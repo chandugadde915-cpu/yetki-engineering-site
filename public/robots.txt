@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://yetkiengineering.com/sitemap.xml
+Sitemap: https://www.yetkiengineering.com/sitemap.xml
