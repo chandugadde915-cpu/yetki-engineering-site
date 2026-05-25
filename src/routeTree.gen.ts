@@ -11,18 +11,32 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TermsRouteImport } from './routes/terms'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ReverseEngineeringServicesHyderabadRouteImport } from './routes/reverse-engineering-services-hyderabad'
 import { Route as ReverseEngineeringServicesRouteImport } from './routes/reverse-engineering-services'
+import { Route as ReverseEngineeringCompanyIndiaRouteImport } from './routes/reverse-engineering-company-india'
+import { Route as ProductDevelopmentServicesHyderabadRouteImport } from './routes/product-development-services-hyderabad'
+import { Route as ProductDevelopmentCompanyIndiaRouteImport } from './routes/product-development-company-india'
 import { Route as PrivacyPolicyRouteImport } from './routes/privacy-policy'
+import { Route as PrecisionMouldMakingHyderabadRouteImport } from './routes/precision-mould-making-hyderabad'
 import { Route as PrecisionManufacturingRouteImport } from './routes/precision-manufacturing'
+import { Route as PrecisionEngineeringCompanyIndiaRouteImport } from './routes/precision-engineering-company-india'
 import { Route as MouldDesignManufacturingRouteImport } from './routes/mould-design-manufacturing'
 import { Route as IndustrialProductDevelopmentRouteImport } from './routes/industrial-product-development'
+import { Route as IndustrialMetrologyServicesIndiaRouteImport } from './routes/industrial-metrology-services-india'
+import { Route as IndustrialMetrologyServicesHyderabadRouteImport } from './routes/industrial-metrology-services-hyderabad'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CncManufacturingServicesHyderabadRouteImport } from './routes/cnc-manufacturing-services-hyderabad'
 import { Route as CaseStudiesRouteImport } from './routes/case-studies'
 import { Route as CadModellingServicesRouteImport } from './routes/cad-modelling-services'
+import { Route as CadInspectionServicesIndiaRouteImport } from './routes/cad-inspection-services-india'
+import { Route as CadInspectionServicesHyderabadRouteImport } from './routes/cad-inspection-services-hyderabad'
 import { Route as BlogRouteImport } from './routes/blog'
 import { Route as AboutRouteImport } from './routes/about'
+import { Route as R3dScanningServicesIndiaRouteImport } from './routes/3d-scanning-services-india'
+import { Route as R3dScanningServicesHyderabadRouteImport } from './routes/3d-scanning-services-hyderabad'
 import { Route as R3dScanningServicesRouteImport } from './routes/3d-scanning-services'
 import { Route as R3dScannerSalesRouteImport } from './routes/3d-scanner-sales'
+import { Route as R3dPrintingServicesHyderabadRouteImport } from './routes/3d-printing-services-hyderabad'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as BlogIndexRouteImport } from './routes/blog.index'
 import { Route as BlogSlugRouteImport } from './routes/blog.$slug'
@@ -39,10 +53,34 @@ const ServicesRoute = ServicesRouteImport.update({
   path: '/services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ReverseEngineeringServicesHyderabadRoute =
+  ReverseEngineeringServicesHyderabadRouteImport.update({
+    id: '/reverse-engineering-services-hyderabad',
+    path: '/reverse-engineering-services-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ReverseEngineeringServicesRoute =
   ReverseEngineeringServicesRouteImport.update({
     id: '/reverse-engineering-services',
     path: '/reverse-engineering-services',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ReverseEngineeringCompanyIndiaRoute =
+  ReverseEngineeringCompanyIndiaRouteImport.update({
+    id: '/reverse-engineering-company-india',
+    path: '/reverse-engineering-company-india',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductDevelopmentServicesHyderabadRoute =
+  ProductDevelopmentServicesHyderabadRouteImport.update({
+    id: '/product-development-services-hyderabad',
+    path: '/product-development-services-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const ProductDevelopmentCompanyIndiaRoute =
+  ProductDevelopmentCompanyIndiaRouteImport.update({
+    id: '/product-development-company-india',
+    path: '/product-development-company-india',
     getParentRoute: () => rootRouteImport,
   } as any)
 const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
@@ -50,11 +88,23 @@ const PrivacyPolicyRoute = PrivacyPolicyRouteImport.update({
   path: '/privacy-policy',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrecisionMouldMakingHyderabadRoute =
+  PrecisionMouldMakingHyderabadRouteImport.update({
+    id: '/precision-mould-making-hyderabad',
+    path: '/precision-mould-making-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const PrecisionManufacturingRoute = PrecisionManufacturingRouteImport.update({
   id: '/precision-manufacturing',
   path: '/precision-manufacturing',
   getParentRoute: () => rootRouteImport,
 } as any)
+const PrecisionEngineeringCompanyIndiaRoute =
+  PrecisionEngineeringCompanyIndiaRouteImport.update({
+    id: '/precision-engineering-company-india',
+    path: '/precision-engineering-company-india',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const MouldDesignManufacturingRoute =
   MouldDesignManufacturingRouteImport.update({
     id: '/mould-design-manufacturing',
@@ -67,11 +117,29 @@ const IndustrialProductDevelopmentRoute =
     path: '/industrial-product-development',
     getParentRoute: () => rootRouteImport,
   } as any)
+const IndustrialMetrologyServicesIndiaRoute =
+  IndustrialMetrologyServicesIndiaRouteImport.update({
+    id: '/industrial-metrology-services-india',
+    path: '/industrial-metrology-services-india',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const IndustrialMetrologyServicesHyderabadRoute =
+  IndustrialMetrologyServicesHyderabadRouteImport.update({
+    id: '/industrial-metrology-services-hyderabad',
+    path: '/industrial-metrology-services-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const ContactRoute = ContactRouteImport.update({
   id: '/contact',
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CncManufacturingServicesHyderabadRoute =
+  CncManufacturingServicesHyderabadRouteImport.update({
+    id: '/cnc-manufacturing-services-hyderabad',
+    path: '/cnc-manufacturing-services-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const CaseStudiesRoute = CaseStudiesRouteImport.update({
   id: '/case-studies',
   path: '/case-studies',
@@ -82,6 +150,18 @@ const CadModellingServicesRoute = CadModellingServicesRouteImport.update({
   path: '/cad-modelling-services',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CadInspectionServicesIndiaRoute =
+  CadInspectionServicesIndiaRouteImport.update({
+    id: '/cad-inspection-services-india',
+    path: '/cad-inspection-services-india',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const CadInspectionServicesHyderabadRoute =
+  CadInspectionServicesHyderabadRouteImport.update({
+    id: '/cad-inspection-services-hyderabad',
+    path: '/cad-inspection-services-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const BlogRoute = BlogRouteImport.update({
   id: '/blog',
   path: '/blog',
@@ -92,6 +172,18 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
+const R3dScanningServicesIndiaRoute =
+  R3dScanningServicesIndiaRouteImport.update({
+    id: '/3d-scanning-services-india',
+    path: '/3d-scanning-services-india',
+    getParentRoute: () => rootRouteImport,
+  } as any)
+const R3dScanningServicesHyderabadRoute =
+  R3dScanningServicesHyderabadRouteImport.update({
+    id: '/3d-scanning-services-hyderabad',
+    path: '/3d-scanning-services-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const R3dScanningServicesRoute = R3dScanningServicesRouteImport.update({
   id: '/3d-scanning-services',
   path: '/3d-scanning-services',
@@ -102,6 +194,12 @@ const R3dScannerSalesRoute = R3dScannerSalesRouteImport.update({
   path: '/3d-scanner-sales',
   getParentRoute: () => rootRouteImport,
 } as any)
+const R3dPrintingServicesHyderabadRoute =
+  R3dPrintingServicesHyderabadRouteImport.update({
+    id: '/3d-printing-services-hyderabad',
+    path: '/3d-printing-services-hyderabad',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
@@ -130,18 +228,32 @@ const BlogCategoryCategoryRoute = BlogCategoryCategoryRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/3d-printing-services-hyderabad': typeof R3dPrintingServicesHyderabadRoute
   '/3d-scanner-sales': typeof R3dScannerSalesRoute
   '/3d-scanning-services': typeof R3dScanningServicesRoute
+  '/3d-scanning-services-hyderabad': typeof R3dScanningServicesHyderabadRoute
+  '/3d-scanning-services-india': typeof R3dScanningServicesIndiaRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cad-inspection-services-hyderabad': typeof CadInspectionServicesHyderabadRoute
+  '/cad-inspection-services-india': typeof CadInspectionServicesIndiaRoute
   '/cad-modelling-services': typeof CadModellingServicesRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/cnc-manufacturing-services-hyderabad': typeof CncManufacturingServicesHyderabadRoute
   '/contact': typeof ContactRoute
+  '/industrial-metrology-services-hyderabad': typeof IndustrialMetrologyServicesHyderabadRoute
+  '/industrial-metrology-services-india': typeof IndustrialMetrologyServicesIndiaRoute
   '/industrial-product-development': typeof IndustrialProductDevelopmentRoute
   '/mould-design-manufacturing': typeof MouldDesignManufacturingRoute
+  '/precision-engineering-company-india': typeof PrecisionEngineeringCompanyIndiaRoute
   '/precision-manufacturing': typeof PrecisionManufacturingRoute
+  '/precision-mould-making-hyderabad': typeof PrecisionMouldMakingHyderabadRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/product-development-company-india': typeof ProductDevelopmentCompanyIndiaRoute
+  '/product-development-services-hyderabad': typeof ProductDevelopmentServicesHyderabadRoute
+  '/reverse-engineering-company-india': typeof ReverseEngineeringCompanyIndiaRoute
   '/reverse-engineering-services': typeof ReverseEngineeringServicesRoute
+  '/reverse-engineering-services-hyderabad': typeof ReverseEngineeringServicesHyderabadRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
@@ -151,17 +263,31 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/3d-printing-services-hyderabad': typeof R3dPrintingServicesHyderabadRoute
   '/3d-scanner-sales': typeof R3dScannerSalesRoute
   '/3d-scanning-services': typeof R3dScanningServicesRoute
+  '/3d-scanning-services-hyderabad': typeof R3dScanningServicesHyderabadRoute
+  '/3d-scanning-services-india': typeof R3dScanningServicesIndiaRoute
   '/about': typeof AboutRoute
+  '/cad-inspection-services-hyderabad': typeof CadInspectionServicesHyderabadRoute
+  '/cad-inspection-services-india': typeof CadInspectionServicesIndiaRoute
   '/cad-modelling-services': typeof CadModellingServicesRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/cnc-manufacturing-services-hyderabad': typeof CncManufacturingServicesHyderabadRoute
   '/contact': typeof ContactRoute
+  '/industrial-metrology-services-hyderabad': typeof IndustrialMetrologyServicesHyderabadRoute
+  '/industrial-metrology-services-india': typeof IndustrialMetrologyServicesIndiaRoute
   '/industrial-product-development': typeof IndustrialProductDevelopmentRoute
   '/mould-design-manufacturing': typeof MouldDesignManufacturingRoute
+  '/precision-engineering-company-india': typeof PrecisionEngineeringCompanyIndiaRoute
   '/precision-manufacturing': typeof PrecisionManufacturingRoute
+  '/precision-mould-making-hyderabad': typeof PrecisionMouldMakingHyderabadRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/product-development-company-india': typeof ProductDevelopmentCompanyIndiaRoute
+  '/product-development-services-hyderabad': typeof ProductDevelopmentServicesHyderabadRoute
+  '/reverse-engineering-company-india': typeof ReverseEngineeringCompanyIndiaRoute
   '/reverse-engineering-services': typeof ReverseEngineeringServicesRoute
+  '/reverse-engineering-services-hyderabad': typeof ReverseEngineeringServicesHyderabadRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
@@ -172,18 +298,32 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/3d-printing-services-hyderabad': typeof R3dPrintingServicesHyderabadRoute
   '/3d-scanner-sales': typeof R3dScannerSalesRoute
   '/3d-scanning-services': typeof R3dScanningServicesRoute
+  '/3d-scanning-services-hyderabad': typeof R3dScanningServicesHyderabadRoute
+  '/3d-scanning-services-india': typeof R3dScanningServicesIndiaRoute
   '/about': typeof AboutRoute
   '/blog': typeof BlogRouteWithChildren
+  '/cad-inspection-services-hyderabad': typeof CadInspectionServicesHyderabadRoute
+  '/cad-inspection-services-india': typeof CadInspectionServicesIndiaRoute
   '/cad-modelling-services': typeof CadModellingServicesRoute
   '/case-studies': typeof CaseStudiesRoute
+  '/cnc-manufacturing-services-hyderabad': typeof CncManufacturingServicesHyderabadRoute
   '/contact': typeof ContactRoute
+  '/industrial-metrology-services-hyderabad': typeof IndustrialMetrologyServicesHyderabadRoute
+  '/industrial-metrology-services-india': typeof IndustrialMetrologyServicesIndiaRoute
   '/industrial-product-development': typeof IndustrialProductDevelopmentRoute
   '/mould-design-manufacturing': typeof MouldDesignManufacturingRoute
+  '/precision-engineering-company-india': typeof PrecisionEngineeringCompanyIndiaRoute
   '/precision-manufacturing': typeof PrecisionManufacturingRoute
+  '/precision-mould-making-hyderabad': typeof PrecisionMouldMakingHyderabadRoute
   '/privacy-policy': typeof PrivacyPolicyRoute
+  '/product-development-company-india': typeof ProductDevelopmentCompanyIndiaRoute
+  '/product-development-services-hyderabad': typeof ProductDevelopmentServicesHyderabadRoute
+  '/reverse-engineering-company-india': typeof ReverseEngineeringCompanyIndiaRoute
   '/reverse-engineering-services': typeof ReverseEngineeringServicesRoute
+  '/reverse-engineering-services-hyderabad': typeof ReverseEngineeringServicesHyderabadRoute
   '/services': typeof ServicesRoute
   '/terms': typeof TermsRoute
   '/api/contact': typeof ApiContactRoute
@@ -195,18 +335,32 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/3d-printing-services-hyderabad'
     | '/3d-scanner-sales'
     | '/3d-scanning-services'
+    | '/3d-scanning-services-hyderabad'
+    | '/3d-scanning-services-india'
     | '/about'
     | '/blog'
+    | '/cad-inspection-services-hyderabad'
+    | '/cad-inspection-services-india'
     | '/cad-modelling-services'
     | '/case-studies'
+    | '/cnc-manufacturing-services-hyderabad'
     | '/contact'
+    | '/industrial-metrology-services-hyderabad'
+    | '/industrial-metrology-services-india'
     | '/industrial-product-development'
     | '/mould-design-manufacturing'
+    | '/precision-engineering-company-india'
     | '/precision-manufacturing'
+    | '/precision-mould-making-hyderabad'
     | '/privacy-policy'
+    | '/product-development-company-india'
+    | '/product-development-services-hyderabad'
+    | '/reverse-engineering-company-india'
     | '/reverse-engineering-services'
+    | '/reverse-engineering-services-hyderabad'
     | '/services'
     | '/terms'
     | '/api/contact'
@@ -216,17 +370,31 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/3d-printing-services-hyderabad'
     | '/3d-scanner-sales'
     | '/3d-scanning-services'
+    | '/3d-scanning-services-hyderabad'
+    | '/3d-scanning-services-india'
     | '/about'
+    | '/cad-inspection-services-hyderabad'
+    | '/cad-inspection-services-india'
     | '/cad-modelling-services'
     | '/case-studies'
+    | '/cnc-manufacturing-services-hyderabad'
     | '/contact'
+    | '/industrial-metrology-services-hyderabad'
+    | '/industrial-metrology-services-india'
     | '/industrial-product-development'
     | '/mould-design-manufacturing'
+    | '/precision-engineering-company-india'
     | '/precision-manufacturing'
+    | '/precision-mould-making-hyderabad'
     | '/privacy-policy'
+    | '/product-development-company-india'
+    | '/product-development-services-hyderabad'
+    | '/reverse-engineering-company-india'
     | '/reverse-engineering-services'
+    | '/reverse-engineering-services-hyderabad'
     | '/services'
     | '/terms'
     | '/api/contact'
@@ -236,18 +404,32 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/3d-printing-services-hyderabad'
     | '/3d-scanner-sales'
     | '/3d-scanning-services'
+    | '/3d-scanning-services-hyderabad'
+    | '/3d-scanning-services-india'
     | '/about'
     | '/blog'
+    | '/cad-inspection-services-hyderabad'
+    | '/cad-inspection-services-india'
     | '/cad-modelling-services'
     | '/case-studies'
+    | '/cnc-manufacturing-services-hyderabad'
     | '/contact'
+    | '/industrial-metrology-services-hyderabad'
+    | '/industrial-metrology-services-india'
     | '/industrial-product-development'
     | '/mould-design-manufacturing'
+    | '/precision-engineering-company-india'
     | '/precision-manufacturing'
+    | '/precision-mould-making-hyderabad'
     | '/privacy-policy'
+    | '/product-development-company-india'
+    | '/product-development-services-hyderabad'
+    | '/reverse-engineering-company-india'
     | '/reverse-engineering-services'
+    | '/reverse-engineering-services-hyderabad'
     | '/services'
     | '/terms'
     | '/api/contact'
@@ -258,18 +440,32 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  R3dPrintingServicesHyderabadRoute: typeof R3dPrintingServicesHyderabadRoute
   R3dScannerSalesRoute: typeof R3dScannerSalesRoute
   R3dScanningServicesRoute: typeof R3dScanningServicesRoute
+  R3dScanningServicesHyderabadRoute: typeof R3dScanningServicesHyderabadRoute
+  R3dScanningServicesIndiaRoute: typeof R3dScanningServicesIndiaRoute
   AboutRoute: typeof AboutRoute
   BlogRoute: typeof BlogRouteWithChildren
+  CadInspectionServicesHyderabadRoute: typeof CadInspectionServicesHyderabadRoute
+  CadInspectionServicesIndiaRoute: typeof CadInspectionServicesIndiaRoute
   CadModellingServicesRoute: typeof CadModellingServicesRoute
   CaseStudiesRoute: typeof CaseStudiesRoute
+  CncManufacturingServicesHyderabadRoute: typeof CncManufacturingServicesHyderabadRoute
   ContactRoute: typeof ContactRoute
+  IndustrialMetrologyServicesHyderabadRoute: typeof IndustrialMetrologyServicesHyderabadRoute
+  IndustrialMetrologyServicesIndiaRoute: typeof IndustrialMetrologyServicesIndiaRoute
   IndustrialProductDevelopmentRoute: typeof IndustrialProductDevelopmentRoute
   MouldDesignManufacturingRoute: typeof MouldDesignManufacturingRoute
+  PrecisionEngineeringCompanyIndiaRoute: typeof PrecisionEngineeringCompanyIndiaRoute
   PrecisionManufacturingRoute: typeof PrecisionManufacturingRoute
+  PrecisionMouldMakingHyderabadRoute: typeof PrecisionMouldMakingHyderabadRoute
   PrivacyPolicyRoute: typeof PrivacyPolicyRoute
+  ProductDevelopmentCompanyIndiaRoute: typeof ProductDevelopmentCompanyIndiaRoute
+  ProductDevelopmentServicesHyderabadRoute: typeof ProductDevelopmentServicesHyderabadRoute
+  ReverseEngineeringCompanyIndiaRoute: typeof ReverseEngineeringCompanyIndiaRoute
   ReverseEngineeringServicesRoute: typeof ReverseEngineeringServicesRoute
+  ReverseEngineeringServicesHyderabadRoute: typeof ReverseEngineeringServicesHyderabadRoute
   ServicesRoute: typeof ServicesRoute
   TermsRoute: typeof TermsRoute
   ApiContactRoute: typeof ApiContactRoute
@@ -291,11 +487,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/reverse-engineering-services-hyderabad': {
+      id: '/reverse-engineering-services-hyderabad'
+      path: '/reverse-engineering-services-hyderabad'
+      fullPath: '/reverse-engineering-services-hyderabad'
+      preLoaderRoute: typeof ReverseEngineeringServicesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/reverse-engineering-services': {
       id: '/reverse-engineering-services'
       path: '/reverse-engineering-services'
       fullPath: '/reverse-engineering-services'
       preLoaderRoute: typeof ReverseEngineeringServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reverse-engineering-company-india': {
+      id: '/reverse-engineering-company-india'
+      path: '/reverse-engineering-company-india'
+      fullPath: '/reverse-engineering-company-india'
+      preLoaderRoute: typeof ReverseEngineeringCompanyIndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-development-services-hyderabad': {
+      id: '/product-development-services-hyderabad'
+      path: '/product-development-services-hyderabad'
+      fullPath: '/product-development-services-hyderabad'
+      preLoaderRoute: typeof ProductDevelopmentServicesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/product-development-company-india': {
+      id: '/product-development-company-india'
+      path: '/product-development-company-india'
+      fullPath: '/product-development-company-india'
+      preLoaderRoute: typeof ProductDevelopmentCompanyIndiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/privacy-policy': {
@@ -305,11 +529,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof PrivacyPolicyRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/precision-mould-making-hyderabad': {
+      id: '/precision-mould-making-hyderabad'
+      path: '/precision-mould-making-hyderabad'
+      fullPath: '/precision-mould-making-hyderabad'
+      preLoaderRoute: typeof PrecisionMouldMakingHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/precision-manufacturing': {
       id: '/precision-manufacturing'
       path: '/precision-manufacturing'
       fullPath: '/precision-manufacturing'
       preLoaderRoute: typeof PrecisionManufacturingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/precision-engineering-company-india': {
+      id: '/precision-engineering-company-india'
+      path: '/precision-engineering-company-india'
+      fullPath: '/precision-engineering-company-india'
+      preLoaderRoute: typeof PrecisionEngineeringCompanyIndiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/mould-design-manufacturing': {
@@ -326,11 +564,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndustrialProductDevelopmentRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/industrial-metrology-services-india': {
+      id: '/industrial-metrology-services-india'
+      path: '/industrial-metrology-services-india'
+      fullPath: '/industrial-metrology-services-india'
+      preLoaderRoute: typeof IndustrialMetrologyServicesIndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/industrial-metrology-services-hyderabad': {
+      id: '/industrial-metrology-services-hyderabad'
+      path: '/industrial-metrology-services-hyderabad'
+      fullPath: '/industrial-metrology-services-hyderabad'
+      preLoaderRoute: typeof IndustrialMetrologyServicesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contact': {
       id: '/contact'
       path: '/contact'
       fullPath: '/contact'
       preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cnc-manufacturing-services-hyderabad': {
+      id: '/cnc-manufacturing-services-hyderabad'
+      path: '/cnc-manufacturing-services-hyderabad'
+      fullPath: '/cnc-manufacturing-services-hyderabad'
+      preLoaderRoute: typeof CncManufacturingServicesHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/case-studies': {
@@ -347,6 +606,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CadModellingServicesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/cad-inspection-services-india': {
+      id: '/cad-inspection-services-india'
+      path: '/cad-inspection-services-india'
+      fullPath: '/cad-inspection-services-india'
+      preLoaderRoute: typeof CadInspectionServicesIndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/cad-inspection-services-hyderabad': {
+      id: '/cad-inspection-services-hyderabad'
+      path: '/cad-inspection-services-hyderabad'
+      fullPath: '/cad-inspection-services-hyderabad'
+      preLoaderRoute: typeof CadInspectionServicesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/blog': {
       id: '/blog'
       path: '/blog'
@@ -361,6 +634,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/3d-scanning-services-india': {
+      id: '/3d-scanning-services-india'
+      path: '/3d-scanning-services-india'
+      fullPath: '/3d-scanning-services-india'
+      preLoaderRoute: typeof R3dScanningServicesIndiaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/3d-scanning-services-hyderabad': {
+      id: '/3d-scanning-services-hyderabad'
+      path: '/3d-scanning-services-hyderabad'
+      fullPath: '/3d-scanning-services-hyderabad'
+      preLoaderRoute: typeof R3dScanningServicesHyderabadRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/3d-scanning-services': {
       id: '/3d-scanning-services'
       path: '/3d-scanning-services'
@@ -373,6 +660,13 @@ declare module '@tanstack/react-router' {
       path: '/3d-scanner-sales'
       fullPath: '/3d-scanner-sales'
       preLoaderRoute: typeof R3dScannerSalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/3d-printing-services-hyderabad': {
+      id: '/3d-printing-services-hyderabad'
+      path: '/3d-printing-services-hyderabad'
+      fullPath: '/3d-printing-services-hyderabad'
+      preLoaderRoute: typeof R3dPrintingServicesHyderabadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/': {
@@ -429,18 +723,36 @@ const BlogRouteWithChildren = BlogRoute._addFileChildren(BlogRouteChildren)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  R3dPrintingServicesHyderabadRoute: R3dPrintingServicesHyderabadRoute,
   R3dScannerSalesRoute: R3dScannerSalesRoute,
   R3dScanningServicesRoute: R3dScanningServicesRoute,
+  R3dScanningServicesHyderabadRoute: R3dScanningServicesHyderabadRoute,
+  R3dScanningServicesIndiaRoute: R3dScanningServicesIndiaRoute,
   AboutRoute: AboutRoute,
   BlogRoute: BlogRouteWithChildren,
+  CadInspectionServicesHyderabadRoute: CadInspectionServicesHyderabadRoute,
+  CadInspectionServicesIndiaRoute: CadInspectionServicesIndiaRoute,
   CadModellingServicesRoute: CadModellingServicesRoute,
   CaseStudiesRoute: CaseStudiesRoute,
+  CncManufacturingServicesHyderabadRoute:
+    CncManufacturingServicesHyderabadRoute,
   ContactRoute: ContactRoute,
+  IndustrialMetrologyServicesHyderabadRoute:
+    IndustrialMetrologyServicesHyderabadRoute,
+  IndustrialMetrologyServicesIndiaRoute: IndustrialMetrologyServicesIndiaRoute,
   IndustrialProductDevelopmentRoute: IndustrialProductDevelopmentRoute,
   MouldDesignManufacturingRoute: MouldDesignManufacturingRoute,
+  PrecisionEngineeringCompanyIndiaRoute: PrecisionEngineeringCompanyIndiaRoute,
   PrecisionManufacturingRoute: PrecisionManufacturingRoute,
+  PrecisionMouldMakingHyderabadRoute: PrecisionMouldMakingHyderabadRoute,
   PrivacyPolicyRoute: PrivacyPolicyRoute,
+  ProductDevelopmentCompanyIndiaRoute: ProductDevelopmentCompanyIndiaRoute,
+  ProductDevelopmentServicesHyderabadRoute:
+    ProductDevelopmentServicesHyderabadRoute,
+  ReverseEngineeringCompanyIndiaRoute: ReverseEngineeringCompanyIndiaRoute,
   ReverseEngineeringServicesRoute: ReverseEngineeringServicesRoute,
+  ReverseEngineeringServicesHyderabadRoute:
+    ReverseEngineeringServicesHyderabadRoute,
   ServicesRoute: ServicesRoute,
   TermsRoute: TermsRoute,
   ApiContactRoute: ApiContactRoute,

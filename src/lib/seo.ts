@@ -19,6 +19,19 @@ type FaqItem = {
   a: string;
 };
 
+type BreadcrumbItem = {
+  name: string;
+  path: string;
+};
+
+type ServiceJsonLdInput = {
+  name: string;
+  description: string;
+  path: string;
+  areaServed: string;
+  serviceType: string;
+};
+
 function readEnv(name: string): string | undefined {
   const globalWithProcess = globalThis as typeof globalThis & {
     process?: { env?: Record<string, string | undefined> };
@@ -142,6 +155,49 @@ export function organizationJsonLd() {
         url: SITE_URL,
       },
     ],
+  };
+}
+
+export function serviceJsonLd({
+  name,
+  description,
+  path,
+  areaServed,
+  serviceType,
+}: ServiceJsonLdInput) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    name,
+    description,
+    serviceType,
+    areaServed,
+    url: canonicalUrl(path),
+    provider: {
+      "@type": "LocalBusiness",
+      name: COMPANY_NAME,
+      url: SITE_URL,
+      telephone: "+91-9505923789",
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Hyderabad",
+        addressRegion: "Telangana",
+        addressCountry: "IN",
+      },
+    },
+  };
+}
+
+export function breadcrumbJsonLd(items: BreadcrumbItem[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      item: canonicalUrl(item.path),
+    })),
   };
 }
 
