@@ -44,7 +44,9 @@ export const Route = createFileRoute("/blog/category/$category")({
   errorComponent: ({ error, reset }) => (
     <div className="mx-auto max-w-3xl px-4 py-24 text-center">
       <h1 className="text-2xl font-semibold">Couldn't load this category</h1>
-      <p className="mt-2 text-sm text-muted-foreground">{error.message}</p>
+      <p className="mt-2 text-sm text-muted-foreground">
+        {error instanceof Error ? error.message : "Please try again."}
+      </p>
       <button onClick={reset} className="mt-4 rounded-lg bg-blue-600 px-4 py-2 text-sm text-white">
         Try again
       </button>

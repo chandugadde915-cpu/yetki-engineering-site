@@ -39,6 +39,10 @@ $env:VERCEL = '1'
 npm run build
 ```
 
+Vercel installs dependencies with `npm ci` using `package-lock.json`.
+Keep npm as the package manager so deployments use the tested dependency versions.
+TanStack Start is pinned to the patched 1.168.60 release (server core 1.169.39).
+
 ## Contact email setup
 
 The website runs without email credentials, but sending contact enquiries requires
