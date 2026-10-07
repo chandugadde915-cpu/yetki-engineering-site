@@ -30,7 +30,9 @@ function env(name: string) {
 }
 
 function toText(value: unknown, maxLength = MAX_FIELD_LENGTH) {
-  return String(value ?? "").trim().slice(0, maxLength);
+  return String(value ?? "")
+    .trim()
+    .slice(0, maxLength);
 }
 
 function parseLead(body: Record<string, unknown>): ContactLead & { website: string } {
@@ -172,7 +174,10 @@ export const Route = createFileRoute("/api/contact")({
         }
 
         if (!lead.name || !isValidEmail(lead.email)) {
-          return jsonResponse({ message: "Please enter your name and a valid email address." }, 400);
+          return jsonResponse(
+            { message: "Please enter your name and a valid email address." },
+            400,
+          );
         }
 
         const result = await sendLeadEmail(lead);

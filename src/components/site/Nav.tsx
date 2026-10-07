@@ -17,10 +17,25 @@ export function Nav() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
-    onScroll();
-    window.addEventListener("scroll", onScroll);
-    return () => window.removeEventListener("scroll", onScroll);
+    let frame = 0;
+    let previous = window.scrollY > 12;
+    setScrolled(previous);
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(() => {
+        frame = 0;
+        const next = window.scrollY > 12;
+        if (next !== previous) {
+          previous = next;
+          setScrolled(next);
+        }
+      });
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      cancelAnimationFrame(frame);
+    };
   }, []);
 
   return (
@@ -35,21 +50,19 @@ export function Nav() {
             scrolled ? "glass-strong" : "glass"
           }`}
         >
-          <Link to="/" className="flex shrink-0 items-center gap-3 group" aria-label="Yetki Engineering home">
-            <span className="grid h-10 w-12 place-items-center overflow-hidden transition-transform group-hover:scale-[1.03]">
-              <span
-                aria-hidden="true"
-                className="block h-full w-full bg-gradient-to-br from-white via-blue-200 to-blue-500 drop-shadow-[0_0_14px_rgba(108,182,255,0.34)]"
-                style={{
-                  WebkitMask: "url('/yetki-mark.png?v=site') center / contain no-repeat",
-                  mask: "url('/yetki-mark.png?v=site') center / contain no-repeat",
-                }}
-              />
-            </span>
-            <span className="leading-none">
-              <span className="block text-sm font-semibold tracking-tight text-foreground">YETKI</span>
-              <span className="block text-[10px] uppercase tracking-[0.18em] text-blue-200/70">Engineering</span>
-            </span>
+          <Link
+            to="/"
+            className="flex shrink-0 items-center gap-3 group"
+            aria-label="Yetki Engineering home"
+          >
+            <img
+              src="/yetki-logo-dark.webp"
+              alt="Yetki Engineering"
+              width={640}
+              height={320}
+              className="h-auto w-32 object-contain transition-transform group-hover:scale-[1.03] sm:w-40"
+              fetchPriority="high"
+            />
           </Link>
 
           <nav className="hidden lg:flex items-center gap-6">
@@ -67,7 +80,7 @@ export function Nav() {
 
           <div className="flex items-center gap-2">
             <a
-              href="#contact"
+              href="/#contact"
               className="hidden sm:inline-flex items-center rounded-lg bg-gradient-to-r from-blue-500 to-blue-700 px-4 py-2 text-xs font-semibold text-white shadow-[0_0_20px_rgba(60,130,255,0.4)] hover:shadow-[0_0_30px_rgba(60,130,255,0.6)] transition-all"
             >
               Request a Quote

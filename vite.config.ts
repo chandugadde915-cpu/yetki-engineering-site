@@ -11,6 +11,13 @@ import { nitro } from "nitro/vite";
 // @cloudflare/vite-plugin builds from this — wrangler.jsonc main alone is insufficient.
 const isVercelBuild = process.env.VERCEL === "1";
 
+// The shared config adds Cloudflare only during builds. Preview needs it too
+// so it serves the Worker output rather than expecting a Node server.js file.
+const previewPlugins =
+  process.argv.includes("preview") && !isVercelBuild
+    ? [(await import("@cloudflare/vite-plugin")).cloudflare({ viteEnvironment: { name: "ssr" } })]
+    : [];
+
 export default defineConfig({
   ...(isVercelBuild
     ? {
@@ -19,13 +26,14 @@ export default defineConfig({
           nitro({
             vercel: {
               config: {
+                version: 3,
                 routes: [{ src: "/robots\\.txt", dest: "/__server" }],
               },
             },
           }),
         ],
       }
-    : {}),
+    : { plugins: previewPlugins }),
   tanstackStart: {
     server: { entry: "server" },
   },

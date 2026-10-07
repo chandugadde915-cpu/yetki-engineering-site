@@ -1,5 +1,4 @@
-import { motion } from "framer-motion";
-import { useEffect, useRef, useState } from "react";
+import { useState } from "react";
 import {
   ScanLine,
   Cog,
@@ -74,43 +73,9 @@ function Counter({
   suffix?: string;
   prefix?: string;
 }) {
-  const [v, setV] = useState(to);
-  const ref = useRef<HTMLSpanElement>(null);
-  const finalValue = `${prefix}${to.toLocaleString()}${suffix}`;
-
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          const start = performance.now();
-          const dur = 1600;
-          setV(0);
-          const tick = (t: number) => {
-            const p = Math.min(1, (t - start) / dur);
-            setV(Math.floor(to * (1 - Math.pow(1 - p, 3))));
-            if (p < 1) requestAnimationFrame(tick);
-          };
-          requestAnimationFrame(tick);
-          obs.disconnect();
-        }
-      },
-      { threshold: 0.3 },
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [to]);
-
-  return (
-    <span ref={ref} aria-label={finalValue}>
-      {prefix}
-      {v.toLocaleString()}
-      {suffix}
-    </span>
-  );
+  const finalValue = `${prefix}${to.toLocaleString("en-IN")}${suffix}`;
+  return <span aria-label={finalValue}>{finalValue}</span>;
 }
-
 // ---------------- About ----------------
 export function About() {
   const stats = [
@@ -166,21 +131,14 @@ export function About() {
           </div>
           <div className="mt-6 grid grid-cols-2 sm:grid-cols-4 gap-3">
             {stats.map((s, i) => (
-              <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="glass rounded-2xl p-5"
-              >
+              <div key={i} className="glass rounded-2xl p-5">
                 <div className="text-3xl font-semibold text-gradient">
                   <Counter to={s.v} suffix={s.suffix} />
                 </div>
                 <div className="text-[11px] uppercase tracking-[0.16em] text-muted-foreground mt-1.5">
                   {s.label}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>
@@ -251,15 +209,11 @@ export function Services() {
         />
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {SERVICES.map((s, i) => (
-            <motion.div
+            <div
               key={s.title}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ delay: (i % 3) * 0.08 }}
               className="group relative overflow-hidden rounded-2xl glass-strong p-6 hover:-translate-y-1 transition-all"
             >
-              <div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl group-hover:bg-blue-500/20 transition-all" />
+              <div className="absolute -top-12 -right-12 h-40 w-40 rounded-full bg-blue-500/10 soft-glow group-hover:bg-blue-500/20 transition-all" />
               <div className="relative">
                 <div className="inline-grid place-items-center h-12 w-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-700/10 border border-blue-400/20">
                   <s.icon size={20} className="text-blue-300" />
@@ -277,7 +231,7 @@ export function Services() {
                   />
                 </Link>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -312,18 +266,14 @@ export function Industries() {
         />
         <div className="mt-14 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
           {INDUSTRIES.map((it, i) => (
-            <motion.div
+            <div
               key={it.name}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
               className="group relative overflow-hidden rounded-2xl glass p-5 hover:border-blue-400/40 hover:bg-blue-500/5 transition-all"
             >
               <it.icon size={22} className="text-blue-300" />
               <div className="mt-4 text-sm font-medium">{it.name}</div>
-              <div className="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-blue-500/0 group-hover:bg-blue-500/20 blur-2xl transition-all" />
-            </motion.div>
+              <div className="absolute -bottom-12 -right-8 h-32 w-32 rounded-full bg-blue-500/0 group-hover:bg-blue-500/20 soft-glow transition-all" />
+            </div>
           ))}
         </div>
       </div>
@@ -372,14 +322,7 @@ export function Showcase() {
         />
         <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-5">
           {items.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.08 }}
-              className="group relative overflow-hidden rounded-2xl glass-strong"
-            >
+            <div key={i} className="group relative overflow-hidden rounded-2xl glass-strong">
               <div className="aspect-[4/5] overflow-hidden">
                 <img
                   src={p.img}
@@ -395,7 +338,7 @@ export function Showcase() {
                 <div className="text-base font-semibold">{p.t}</div>
                 <div className="text-xs text-muted-foreground mt-1">{p.d}</div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -419,7 +362,7 @@ export function ScannerTech() {
   return (
     <section className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-blue-700/15 blur-[140px]" />
+        <div className="absolute -top-32 left-1/2 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-blue-700/15 soft-glow" />
       </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-12 gap-10 items-center">
         <div className="lg:col-span-5">
@@ -520,18 +463,11 @@ export function WhyChooseUs() {
         />
         <div className="mt-14 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {items.map((it, i) => (
-            <motion.div
-              key={it.t}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.06 }}
-              className="rounded-2xl glass p-6 hover:bg-blue-500/5 transition-colors"
-            >
+            <div key={it.t} className="rounded-2xl glass p-6 hover:bg-blue-500/5 transition-colors">
               <it.i size={22} className="text-blue-300" />
               <div className="mt-4 font-semibold">{it.t}</div>
               <div className="mt-1 text-sm text-muted-foreground">{it.d}</div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
@@ -580,14 +516,7 @@ export function CaseStudies() {
         />
         <div className="mt-14 grid lg:grid-cols-3 gap-5">
           {cases.map((c, i) => (
-            <motion.article
-              key={i}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="rounded-2xl glass-strong overflow-hidden group"
-            >
+            <article key={i} className="rounded-2xl glass-strong overflow-hidden group">
               <div className="aspect-[16/10] overflow-hidden relative">
                 <img
                   src={c.img}
@@ -618,7 +547,7 @@ export function CaseStudies() {
                   />
                 </div>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>
@@ -698,6 +627,7 @@ export function FAQ() {
 
 // ---------------- Contact ----------------
 export function Contact() {
+  const [mapLoaded, setMapLoaded] = useState(false);
   const [submitState, setSubmitState] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [submitMessage, setSubmitMessage] = useState("");
 
@@ -751,8 +681,8 @@ export function Contact() {
   return (
     <section id="contact" className="relative py-24 overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-0 h-[420px] w-[420px] rounded-full bg-blue-700/20 blur-[120px]" />
-        <div className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-indigo-600/20 blur-[120px]" />
+        <div className="absolute top-0 left-0 h-[420px] w-[420px] rounded-full bg-blue-700/20 soft-glow" />
+        <div className="absolute bottom-0 right-0 h-[420px] w-[420px] rounded-full bg-indigo-600/20 soft-glow" />
         <div className="absolute inset-0 grid-pattern opacity-30" />
       </div>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid lg:grid-cols-2 gap-10 items-start">
@@ -806,12 +736,24 @@ export function Contact() {
               </div>
             </div>
             <div className="rounded-2xl overflow-hidden glass aspect-[16/9] mt-4">
-              <iframe
-                title="YETKI ENGINEERING PVT LTD — Balanagar, Hyderabad"
-                src={`https://www.google.com/maps?q=${MAP_QUERY}&z=17&output=embed`}
-                className="h-full w-full grayscale-[40%] opacity-90"
-                loading="lazy"
-              />
+              {mapLoaded ? (
+                <iframe
+                  title="YETKI ENGINEERING PVT LTD — Balanagar, Hyderabad"
+                  src={`https://www.google.com/maps?q=${MAP_QUERY}&z=17&output=embed`}
+                  className="h-full w-full grayscale-[40%] opacity-90"
+                  loading="lazy"
+                />
+              ) : (
+                <button
+                  type="button"
+                  onClick={() => setMapLoaded(true)}
+                  className="flex h-full w-full flex-col items-center justify-center gap-3 bg-blue-950/40 p-6 text-blue-200 hover:bg-blue-950/60 transition-colors"
+                >
+                  <MapPin size={32} />
+                  <span className="font-medium">Show interactive map</span>
+                  <span className="text-xs text-muted-foreground">Balanagar, Hyderabad</span>
+                </button>
+              )}
             </div>
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${MAP_QUERY}`}

@@ -25,15 +25,25 @@ function TermsPage() {
         <div className="space-y-8 text-sm sm:text-base text-foreground/75 leading-relaxed">
           <section>
             <h2 className="text-2xl font-semibold text-foreground">Website information</h2>
-            <p className="mt-3">Service descriptions are provided for general information. Final scope, price, delivery and technical requirements are confirmed through written communication or quotation.</p>
+            <p className="mt-3">
+              Service descriptions are provided for general information. Final scope, price,
+              delivery and technical requirements are confirmed through written communication or
+              quotation.
+            </p>
           </section>
           <section>
             <h2 className="text-2xl font-semibold text-foreground">Project enquiries</h2>
-            <p className="mt-3">Submitting a form does not create a contract. Our team may request additional technical details before confirming feasibility or timelines.</p>
+            <p className="mt-3">
+              Submitting a form does not create a contract. Our team may request additional
+              technical details before confirming feasibility or timelines.
+            </p>
           </section>
           <section>
             <h2 className="text-2xl font-semibold text-foreground">Intellectual property</h2>
-            <p className="mt-3">Website content, images and branding belong to Yetki Engineering or their respective owners and may not be reused without permission.</p>
+            <p className="mt-3">
+              Website content, images and branding belong to Yetki Engineering or their respective
+              owners and may not be reused without permission.
+            </p>
           </section>
           <section>
             <h2 className="text-2xl font-semibold text-foreground">Contact</h2>

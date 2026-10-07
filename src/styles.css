@@ -64,14 +64,15 @@
   font-style: normal;
   font-weight: 100 900;
   font-display: swap;
-  src: url("https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVMrMxCp50ojIw2boKoduKmMEVuLyfMZhrib2Bg-4.woff2") format("woff2");
+  src: url("@fontsource-variable/inter/files/inter-latin-wght-normal.woff2") format("woff2");
 }
 @font-face {
   font-family: "Space Grotesk";
   font-style: normal;
   font-weight: 300 700;
   font-display: swap;
-  src: url("https://fonts.gstatic.com/s/spacegrotesk/v16/V8mDoQDjQSkFtoMM3T6r8E7mF71Q-gOoraIAEj7oUUxjLg.woff2") format("woff2");
+  src: url("@fontsource-variable/space-grotesk/files/space-grotesk-latin-wght-normal.woff2")
+    format("woff2");
 }
 
 @layer base {
@@ -88,7 +89,10 @@
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
   }
-  h1, h2, h3, h4 {
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
@@ -96,16 +100,12 @@
 
 /* Premium utilities */
 .glass {
-  background: linear-gradient(135deg, rgba(255,255,255,0.04), rgba(255,255,255,0.01));
+  background: linear-gradient(135deg, rgba(17, 31, 59, 0.96), rgba(9, 18, 37, 0.96));
   border: 1px solid rgba(120, 180, 255, 0.12);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
 }
 .glass-strong {
-  background: linear-gradient(135deg, rgba(30, 60, 120, 0.35), rgba(10, 20, 50, 0.55));
+  background: linear-gradient(135deg, rgba(20, 41, 78, 0.97), rgba(10, 20, 50, 0.97));
   border: 1px solid rgba(120, 180, 255, 0.18);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
 }
 .text-gradient {
   background: linear-gradient(120deg, #e8f1ff 0%, #6cb6ff 45%, #2d7fff 100%);
@@ -121,43 +121,105 @@
 }
 .grid-pattern {
   background-image:
-    linear-gradient(rgba(100,160,255,0.07) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100,160,255,0.07) 1px, transparent 1px);
+    linear-gradient(rgba(100, 160, 255, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(100, 160, 255, 0.07) 1px, transparent 1px);
   background-size: 56px 56px;
 }
 .noise::after {
   content: "";
-  position: absolute; inset: 0;
+  position: absolute;
+  inset: 0;
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence baseFrequency='0.9' numOctaves='2'/></filter><rect width='100%25' height='100%25' filter='url(%23n)' opacity='0.4'/></svg>");
-  opacity: 0.05; pointer-events: none; mix-blend-mode: overlay;
+  opacity: 0.05;
+  pointer-events: none;
+  mix-blend-mode: overlay;
 }
 @keyframes floaty {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-14px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
 }
-.floaty { animation: floaty 7s ease-in-out infinite; }
-@keyframes spin-slow { to { transform: rotate(360deg); } }
-.spin-slow { animation: spin-slow 40s linear infinite; }
+.floaty {
+  animation: floaty 7s ease-in-out infinite;
+}
+@keyframes spin-slow {
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-slow {
+  animation: spin-slow 40s linear infinite;
+}
 @keyframes gradient-shift {
-  0%,100% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
 }
 .animated-gradient {
   background: linear-gradient(120deg, #0a1635, #102a6b, #1a4dbf, #0a1635);
   background-size: 300% 300%;
-  animation: gradient-shift 18s ease infinite;
 }
 @keyframes scanline {
-  0% { transform: translateY(-100%); }
-  100% { transform: translateY(100%); }
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100%);
+  }
 }
-.scanline { animation: scanline 3.5s linear infinite; }
+.scanline {
+  animation: scanline 3.5s linear infinite;
+}
 .glow-blue {
-  box-shadow: 0 0 60px -10px rgba(60, 130, 255, 0.45), 0 0 120px -30px rgba(60, 130, 255, 0.35);
+  box-shadow:
+    0 0 60px -10px rgba(60, 130, 255, 0.45),
+    0 0 120px -30px rgba(60, 130, 255, 0.35);
 }
 .divider-glow {
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(120,180,255,0.5), transparent);
+  background: linear-gradient(90deg, transparent, rgba(120, 180, 255, 0.5), transparent);
 }
 
-::selection { background: rgba(80, 140, 255, 0.4); color: white; }
+::selection {
+  background: rgba(80, 140, 255, 0.4);
+  color: white;
+}
+
+/* Paint soft light directly instead of filtering large offscreen surfaces. */
+.soft-glow {
+  background: radial-gradient(
+    ellipse at center,
+    rgba(45, 127, 255, 0.18),
+    transparent 70%
+  ) !important;
+}
+
+/* Keep the engineering artwork; avoid an always-running compositor workload. */
+.site-background *,
+.floaty,
+.spin-slow,
+.scanline,
+.animate-marquee,
+.animate-pulse {
+  animation: none !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

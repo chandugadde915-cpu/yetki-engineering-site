@@ -62,9 +62,12 @@ export function CtaBand() {
     <section className="relative py-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="rounded-3xl glass-strong p-8 sm:p-10">
-          <h2 className="text-2xl sm:text-3xl font-semibold">Ready to discuss an engineering project?</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold">
+            Ready to discuss an engineering project?
+          </h2>
           <p className="mt-3 max-w-2xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            Share your component, scan, CAD, mould or production requirement and our Hyderabad engineering team will respond with the next practical step.
+            Share your component, scan, CAD, mould or production requirement and our Hyderabad
+            engineering team will respond with the next practical step.
           </p>
           <Link
             to="/contact"

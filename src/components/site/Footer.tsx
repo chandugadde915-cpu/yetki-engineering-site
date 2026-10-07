@@ -10,23 +10,18 @@ export function Footer() {
       <div className="absolute inset-x-0 -top-px h-px divider-glow" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 grid gap-10 md:grid-cols-4">
         <div className="md:col-span-2">
-          <div className="flex flex-wrap items-center gap-3">
-            <div className="grid h-12 w-14 place-items-center overflow-hidden">
-              <span
-                aria-hidden="true"
-                className="block h-full w-full bg-gradient-to-br from-white via-blue-200 to-blue-500 drop-shadow-[0_0_14px_rgba(108,182,255,0.34)]"
-                style={{
-                  WebkitMask: "url('/yetki-mark.png?v=site') center / contain no-repeat",
-                  mask: "url('/yetki-mark.png?v=site') center / contain no-repeat",
-                }}
-              />
-            </div>
-            <div>
-              <div className="text-base font-semibold">Yetki Engineering Pvt Ltd</div>
-              <div className="text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
-                Future of Precision Engineering
-              </div>
-            </div>
+          <Link to="/" className="inline-block" aria-label="Yetki Engineering home">
+            <img
+              src="/yetki-logo-dark.webp"
+              alt="Yetki Engineering"
+              width={640}
+              height={320}
+              className="h-auto w-60 max-w-full object-contain"
+              loading="lazy"
+            />
+          </Link>
+          <div className="mt-3 text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+            Future of Precision Engineering
           </div>
           <p className="mt-5 max-w-md text-sm text-muted-foreground leading-relaxed">
             Precision engineering and advanced manufacturing — 3D scanning, reverse engineering, CAD

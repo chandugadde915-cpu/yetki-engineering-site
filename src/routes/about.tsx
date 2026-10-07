@@ -26,13 +26,17 @@ function AboutPage() {
           <div>
             <h2 className="text-2xl font-semibold">Who we are</h2>
             <p className="mt-4 text-sm sm:text-base text-foreground/75 leading-relaxed">
-              We combine industrial 3D scanning, CAD reconstruction, reverse engineering, mould design and precision manufacturing into one practical workflow. Our team helps clients turn physical components, legacy parts and early prototypes into production-ready data and reliable manufactured outcomes.
+              We combine industrial 3D scanning, CAD reconstruction, reverse engineering, mould
+              design and precision manufacturing into one practical workflow. Our team helps clients
+              turn physical components, legacy parts and early prototypes into production-ready data
+              and reliable manufactured outcomes.
             </p>
           </div>
           <div>
             <h2 className="text-2xl font-semibold">What clients rely on</h2>
             <p className="mt-4 text-sm sm:text-base text-foreground/75 leading-relaxed">
-              Every project is handled with clear deliverables, engineering documentation, inspection discipline and confidentiality for sensitive product data.
+              Every project is handled with clear deliverables, engineering documentation,
+              inspection discipline and confidentiality for sensitive product data.
             </p>
           </div>
         </div>

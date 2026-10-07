@@ -1,6 +1,5 @@
 import { Resend } from "resend";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const DEFAULT_TO_EMAIL = "aarifmohammadsyed@gmail.com";
 const DEFAULT_FROM_EMAIL = "Yetki Engineering <info@yetkiengineering.com>";
 
@@ -16,6 +15,7 @@ export default async function handler(req, res) {
       });
     }
 
+    const resend = new Resend(process.env.RESEND_API_KEY);
     const { name, email, service, details, message, projectDetails } = req.body || {};
     const leadDetails = details || projectDetails || message;
 
@@ -33,7 +33,16 @@ export default async function handler(req, res) {
       `,
     });
 
-    return res.status(200).json({ success: true, message: "Thank you. Your details were sent successfully.", result });
+    if (result.error) {
+      console.error("CONTACT_API_ERROR:", result.error);
+      return res.status(502).json({
+        message: "We could not send your request right now. Please call or email us directly.",
+      });
+    }
+
+    return res
+      .status(200)
+      .json({ success: true, message: "Thank you. Your details were sent successfully.", result });
   } catch (error) {
     console.error("CONTACT_API_ERROR:", error);
     return res.status(500).json({

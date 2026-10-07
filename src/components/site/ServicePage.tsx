@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, CheckCircle2 } from "lucide-react";
 import { Nav } from "./Nav";
@@ -40,14 +39,9 @@ export function ServicePage(p: ServicePageProps) {
           <div className="inline-flex items-center gap-2 rounded-full glass px-3 py-1.5 text-[11px] uppercase tracking-[0.22em] text-blue-200">
             <span className="h-1.5 w-1.5 rounded-full bg-blue-400" /> {p.eyebrow}
           </div>
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]"
-          >
+          <h1 className="mt-5 text-4xl sm:text-5xl lg:text-6xl font-semibold leading-[1.05]">
             {p.title}
-          </motion.h1>
+          </h1>
           <p className="mt-5 max-w-3xl text-base sm:text-lg text-foreground/70 leading-relaxed">
             {p.intro}
           </p>

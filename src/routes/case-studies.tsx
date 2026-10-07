@@ -10,17 +10,20 @@ const cases = [
   {
     title: "Automotive bracket reverse engineering",
     sector: "Automotive",
-    result: "Legacy aluminium bracket scanned, reconstructed in CAD and prepared for tolerance-controlled manufacturing.",
+    result:
+      "Legacy aluminium bracket scanned, reconstructed in CAD and prepared for tolerance-controlled manufacturing.",
   },
   {
     title: "Plastic housing mould development",
     sector: "Consumer products",
-    result: "Injection mould design and machining support for repeatable high-volume plastic housing production.",
+    result:
+      "Injection mould design and machining support for repeatable high-volume plastic housing production.",
   },
   {
     title: "Medical component CAD reconstruction",
     sector: "Medical equipment",
-    result: "Critical component geometry captured and rebuilt into clean CAD data for controlled manufacturing review.",
+    result:
+      "Critical component geometry captured and rebuilt into clean CAD data for controlled manufacturing review.",
   },
 ];
 
@@ -43,7 +46,9 @@ function CaseStudiesPage() {
         <div className="grid gap-5 lg:grid-cols-3">
           {cases.map((item) => (
             <article key={item.title} className="rounded-2xl glass-strong p-6">
-              <div className="text-[11px] uppercase tracking-[0.2em] text-blue-300">{item.sector}</div>
+              <div className="text-[11px] uppercase tracking-[0.2em] text-blue-300">
+                {item.sector}
+              </div>
               <h2 className="mt-3 text-xl font-semibold">{item.title}</h2>
               <p className="mt-3 text-sm text-muted-foreground leading-relaxed">{item.result}</p>
             </article>
