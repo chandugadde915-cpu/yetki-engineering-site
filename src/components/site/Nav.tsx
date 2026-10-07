@@ -52,7 +52,7 @@ export function Nav() {
         >
           <Link
             to="/"
-            className="flex shrink-0 items-center gap-3 group"
+            className="group flex h-14 w-44 shrink-0 items-center overflow-hidden sm:h-16 sm:w-52"
             aria-label="Yetki Engineering home"
           >
             <img
@@ -60,12 +60,12 @@ export function Nav() {
               alt="Yetki Engineering"
               width={640}
               height={320}
-              className="h-auto w-32 object-contain transition-transform group-hover:scale-[1.03] sm:w-40"
+              className="h-auto w-full shrink-0 object-contain transition-transform group-hover:scale-[1.03]"
               fetchPriority="high"
             />
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-6">
+          <nav className="hidden xl:flex items-center gap-6">
             {links.slice(1).map((l) => (
               <Link
                 key={l.to}
@@ -87,7 +87,7 @@ export function Nav() {
             </a>
             <button
               onClick={() => setOpen(!open)}
-              className="lg:hidden p-2 rounded-lg glass"
+              className="xl:hidden p-2 rounded-lg glass"
               aria-label="Menu"
             >
               {open ? <X size={18} /> : <Menu size={18} />}
@@ -96,7 +96,7 @@ export function Nav() {
         </div>
 
         {open && (
-          <div className="lg:hidden mt-2 rounded-2xl glass-strong p-4 flex flex-col gap-3">
+          <div className="xl:hidden mt-2 rounded-2xl glass-strong p-4 flex flex-col gap-3">
             {links.map((l) => (
               <Link
                 key={l.to}
